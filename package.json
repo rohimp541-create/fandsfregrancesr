@@ -1,0 +1,15 @@
+{
+  "name": "fs-fragrances-root",
+  "version": "1.0.0",
+  "description": "F&S Fragrances E-Commerce - Root Configuration for Auto-Deployment",
+  "main": "backend/src/server.js",
+  "scripts": {
+    "install": "cd backend && npm install",
+    "postinstall": "cd backend && npm install",
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
