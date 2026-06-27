@@ -1,0 +1,914 @@
+[
+  {
+    "id": 46,
+    "title_ar": "Good Girl Blush",
+    "title_en": "Good Girl Blush",
+    "vendor": "F&S Fragrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (1).jpeg",
+    "badge_ar": "جديد",
+    "badge_en": "NEW",
+    "desc_ar": "عطر غامض وجذاب يجمع بين سحر الياسمين الأبيض ودفء العنبر والمسك، لإطلالة أنثوية فريدة.",
+    "desc_en": "A mysterious and attractive fragrance combining white jasmine with warm amber and musk for a unique feminine look.",
+    "notes_ar": {
+      "top": "ياسمين",
+      "mid": "عنبر",
+      "base": "مسك"
+    },
+    "notes_en": {
+      "top": "Jasmine",
+      "mid": "Amber",
+      "base": "Musk"
+    }
+  },
+  {
+    "id": 47,
+    "title_ar": " - Midnight Rose (Lancôme)",
+    "title_en": "Midnight Rose - Lancôme",
+    "vendor": "F&S Fragrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (2).jpeg",
+    "badge_ar": "مميز",
+    "badge_en": "SPECIAL",
+    "desc_ar": "عطر رومانسي يجسد قصة حب في باريس، يمزج بين الورد الجوري ودفء الفانيليا وخشب الصندل.",
+    "desc_en": "A romantic fragrance embodying a love story in Paris, blending damask rose with warm vanilla and sandalwood.",
+    "notes_ar": {
+      "top": "ورد",
+      "mid": "خشب الصندل",
+      "base": "فانيليا"
+    },
+    "notes_en": {
+      "top": "Rose",
+      "mid": "Sandalwood",
+      "base": "Vanilla"
+    }
+  },
+  {
+    "id": 48,
+    "title_ar": "سوفاج - Sauvage (Dior)",
+    "title_en": "Sauvage - Dior",
+    "vendor": "F&S Fragrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (3).jpeg",
+    "badge_ar": "حصري",
+    "badge_en": "EXCLUSIVE",
+    "desc_ar": "رمز الرجولة والحرية، مزيج بري ومنعش من البرغموت واللافندر مع قاعدة قوية من الباتشولي.",
+    "desc_en": "The symbol of masculinity and freedom, a wild and fresh mix of bergamot and lavender with a strong patchouli base.",
+    "notes_ar": {
+      "top": "برغموت",
+      "mid": "لافندر",
+      "base": "باتشولي"
+    },
+    "notes_en": {
+      "top": "Bergamot",
+      "mid": "Lavender",
+      "base": "Patchouli"
+    }
+  },
+  {
+    "id": 49,
+    "title_ar": "ليل ساطع",
+    "title_en": "Ombre Leather - Tom Ford",
+    "vendor": "F&S Fragrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (4).jpeg",
+    "badge_ar": "شائع",
+    "badge_en": "POPULAR",
+    "desc_ar": "عطر الجلود الفاخرة، يمنحك شعوراً بالقوة والغموض مع نفحات التبغ والتوابل الحارة.",
+    "desc_en": "A luxury leather fragrance, giving you a sense of power and mystery with tobacco and hot spice notes.",
+    "notes_ar": {
+      "top": "توابل حارة",
+      "mid": "تبغ",
+      "base": "جلود"
+    },
+    "notes_en": {
+      "top": "Hot Spices",
+      "mid": "Tobacco",
+      "base": "Leather"
+    }
+  },
+  {
+    "id": 50,
+    "title_ar": "Yum yum",
+    "title_en": "Jimmy Choo - Women",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (5).jpeg",
+    "badge_ar": "جديد",
+    "badge_en": "NEW",
+    "desc_ar": "عطر يعبر عن الأنوثة العصرية، يمزج بين حلاوة الكمثرى ورقة زهور الأوركيد والمسك الأبيض.",
+    "desc_en": "A fragrance expressing modern femininity, blending pear sweetness with delicate orchid and white musk.",
+    "notes_ar": {
+      "top": "كمثرى",
+      "mid": "أوركيد",
+      "base": "مسك أبيض"
+    },
+    "notes_en": {
+      "top": "Pear",
+      "mid": "Orchid",
+      "base": "White Musk"
+    }
+  },
+  {
+    "id": 51,
+    "title_ar": "Nishane X",
+    "title_en": "Nishane X",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (6).jpeg",
+    "badge_ar": "فخم",
+    "badge_en": "LUXURY",
+    "desc_ar": "من أرقى عطور العود العالمية، يتميز برائحة البخور والأخشاب النادرة لإطلالة ملكية فخمة.",
+    "desc_en": "One of the world's finest oud fragrances, featuring incense and rare wood notes for a royal luxury look.",
+    "notes_ar": {
+      "top": "عود",
+      "mid": "بخور",
+      "base": "خشب الأرز"
+    },
+    "notes_en": {
+      "top": "Oud",
+      "mid": "Incense",
+      "base": "Cedarwood"
+    }
+  },
+  {
+    "id": 52,
+    "title_ar": "Scandal",
+    "title_en": "Scandal",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (7).jpeg",
+    "badge_ar": "ناعم",
+    "badge_en": "SOFT",
+    "desc_ar": "عطر الانتعاش الإيطالي، يمزج بين نقاء النيرولي وزنبق الوادي مع قاعدة صندل دافئة.",
+    "desc_en": "The scent of Italian freshness, blending pure neroli and lily of the valley with a warm sandalwood base.",
+    "notes_ar": {
+      "top": "نيرولي",
+      "mid": "زنبق",
+      "base": "صندل"
+    },
+    "notes_en": {
+      "top": "Neroli",
+      "mid": "Lily",
+      "base": "Sandalwood"
+    }
+  },
+  {
+    "id": 53,
+    "title_ar": "روز مسك - Rose Musk (Montale)",
+    "title_en": "Rose Musk - Montale",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (8).jpeg",
+    "badge_ar": "مثير",
+    "badge_en": "SEXY",
+    "desc_ar": "عطر فواح يجمع بين أجود أنواع الورد الأحمر والمسك، مع لمسة فلفل أسود تزيد من جاذبيته.",
+    "desc_en": "A fragrant scent combining the finest red roses and musk with a touch of black pepper for attraction.",
+    "notes_ar": {
+      "top": "فلفل أسود",
+      "mid": "ورد أحمر",
+      "base": "عنبر دافئ"
+    },
+    "notes_en": {
+      "top": "Black Pepper",
+      "mid": "Red Rose",
+      "base": "Warm Amber"
+    }
+  },
+  {
+    "id": 54,
+    "title_ar": "باكارات روج - Baccarat Rouge 540",
+    "title_en": "Baccarat Rouge 540",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM.jpeg",
+    "badge_ar": "حصري",
+    "badge_en": "HOT",
+    "desc_ar": "العطر الأكثر شهرة عالمياً، مزيج فريد من الزعفران والياسمين مع المسك الملكي لإطلالة باهرة.",
+    "desc_en": "The world's most famous fragrance, a unique blend of saffron and jasmine with royal musk for a stunning look.",
+    "notes_ar": {
+      "top": "زعفران",
+      "mid": "هال",
+      "base": "مسك ملكي"
+    },
+    "notes_en": {
+      "top": "Saffron",
+      "mid": "Cardamom",
+      "base": "Royal Musk"
+    }
+  },
+  {
+    "id": 55,
+    "title_ar": "Bacrat rouge 540",
+    "title_en": "Bacrat rouge 540",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (1).jpeg",
+    "badge_ar": "جديد",
+    "badge_en": "NEW",
+    "desc_ar": "عطر الرجل العصري الأنيق، مزيج منعش من الحمضيات والنعناع مع عمق نجيل الهند.",
+    "desc_en": "The fragrance of the elegant modern man, a fresh blend of citrus and mint with vetiver depth.",
+    "notes_ar": {
+      "top": "جريب فروت",
+      "mid": "نعناع",
+      "base": "نجيل الهند"
+    },
+    "notes_en": {
+      "top": "Grapefruit",
+      "mid": "Mint",
+      "base": "Vetiver"
+    }
+  },
+  {
+    "id": 56,
+    "title_ar": "Oud Silk mood",
+    "title_en": "Oud Silk mood",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (2).jpeg",
+    "badge_ar": "مميز",
+    "badge_en": "SPECIAL",
+    "desc_ar": "عطر لعشاق الروائح الدافئة، يفوح برائحة الكاكاو والكاكاو مع لمسة فانيليا ساحرة.",
+    "desc_en": "A fragrance for warm scent lovers, smelling of cacao with an enchanting vanilla touch.",
+    "notes_ar": {
+      "top": "فانيليا",
+      "mid": "كاكاو",
+      "base": "بنزوين"
+    },
+    "notes_en": {
+      "top": "Vanilla",
+      "mid": "Cacao",
+      "base": "Benzoin"
+    }
+  },
+  {
+    "id": 57,
+    "title_ar": "Jean de pual intense",
+    "title_en": "Jean de pual intense",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (3).jpeg",
+    "badge_ar": "فخم",
+    "badge_en": "LUXURY",
+    "desc_ar": "عطر النخبة، يتميز برائحة خشب الصندل والأرز مع لمسة ياسمين تعطي توازناً مذهلاً.",
+    "desc_en": "The elite fragrance, featuring sandalwood and cedar notes with a jasmine touch for stunning balance.",
+    "notes_ar": {
+      "top": "أرز",
+      "mid": "ياسمين",
+      "base": "صندل"
+    },
+    "notes_en": {
+      "top": "Cedar",
+      "mid": "Jasmine",
+      "base": "Sandalwood"
+    }
+  },
+  {
+    "id": 58,
+    "title_ar": "Bellie Eilish",
+    "title_en": "Bellie Eilish",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (4).jpeg",
+    "badge_ar": "منعش",
+    "badge_en": "FRESH",
+    "desc_ar": "عطر الانتعاش البحري الكلاسيكي، مزيج من الليمون والمسك والنوتات المائية الصافية.",
+    "desc_en": "The classic marine freshness fragrance, a mix of lemon, musk, and clear aquatic notes.",
+    "notes_ar": {
+      "top": "نوتات مائية",
+      "mid": "ليمون",
+      "base": "مسك خفيف"
+    },
+    "notes_en": {
+      "top": "Water Notes",
+      "mid": "Lemon",
+      "base": "Light Musk"
+    }
+  },
+  {
+    "id": 59,
+    "title_ar": "Tomford Vanille",
+    "title_en": "Tomford Vanille",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (5).jpeg",
+    "badge_ar": "جديد",
+    "badge_en": "NEW",
+    "desc_ar": "عطر الفخامة العمانية، مزيج معقد من البخور والجلود والأخشاب الداكنة لإطلالة مهيبة.",
+    "desc_en": "Omani luxury fragrance, a complex blend of incense, leather, and dark woods for a majestic look.",
+    "notes_ar": {
+      "top": "بخور",
+      "mid": "جلود",
+      "base": "أخشاب داكنة"
+    },
+    "notes_en": {
+      "top": "Incense",
+      "mid": "Leather",
+      "base": "Dark Woods"
+    }
+  },
+  {
+    "id": 60,
+    "title_ar": "Spice bomb",
+    "title_en": "Spice bomb",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (7).jpeg",
+    "badge_ar": "حصري",
+    "badge_en": "HOT",
+    "desc_ar": "عطر الأنوثة الباريسية، مزيج ساحر من التوت الأحمر وزهور البنفسج وقاعدة الباتشولي.",
+    "desc_en": "Parisian femininity fragrance, a charming mix of red berries, violet flowers, and patchouli base.",
+    "notes_ar": {
+      "top": "توت",
+      "mid": "بنفسج",
+      "base": "باتشولي"
+    },
+    "notes_en": {
+      "top": "Berries",
+      "mid": "Violet",
+      "base": "Patchouli"
+    }
+  },
+  {
+    "id": 61,
+    "title_ar": "Jean Paulparadise garden",
+    "title_en": "Jean Paulparadise garden",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (8).jpeg",
+    "badge_ar": "فخم",
+    "badge_en": "LUXURY",
+    "desc_ar": "النسخة الأكثر تركيزاً وفخامة، تمزج بين الزعفران والعود الملكي والأمبرغريس لأناقة لا تُنسى.",
+    "desc_en": "The most concentrated and luxurious version, blending saffron, royal oud, and ambergris for unforgettable elegance.",
+    "notes_ar": {
+      "top": "أمبرغريس",
+      "mid": "زعفران",
+      "base": "عود ملكي"
+    },
+    "notes_en": {
+      "top": "Ambergris",
+      "mid": "Saffron",
+      "base": "Royal Oud"
+    }
+  },
+  {
+    "id": 62,
+    "title_ar": "Ysl libre",
+    "title_en": "Ysl libre",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (9).jpeg",
+    "badge_ar": "جديد",
+    "badge_en": "NEW",
+    "desc_ar": "عطر الرومانسية، باقة زهرية من الفاوانيا والورد الجوري مع لمسة مسك ناعمة كالحلم.",
+    "desc_en": "The scent of romance, a floral bouquet of peony and damask rose with a dreamy musk touch.",
+    "notes_ar": {
+      "top": "فاوانيا",
+      "mid": "ورد جوري",
+      "base": "مسك"
+    },
+    "notes_en": {
+      "top": "Peony",
+      "mid": "Damask Rose",
+      "base": "Musk"
+    }
+  },
+  {
+    "id": 63,
+    "title_ar": "Portrait",
+    "title_en": "Portrait",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM.jpeg",
+    "badge_ar": "شائع",
+    "badge_en": "POPULAR",
+    "desc_ar": "عطر الرجل العصري الأنيق، يجمع بين انتعاش البرغموت واللافندر وعمق الطحالب العطرية.",
+    "desc_en": "The scent of the elegant modern man, combining bergamot, lavender, and oakmoss depth.",
+    "notes_ar": {
+      "top": "برغموت",
+      "mid": "لافندر",
+      "base": "طحالب"
+    },
+    "notes_en": {
+      "top": "Bergamot",
+      "mid": "Lavender",
+      "base": "Oakmoss"
+    }
+  },
+  {
+    "id": 64,
+    "title_ar": "Valentino",
+    "title_en": "Valentino",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (1).jpeg",
+    "badge_ar": "مميز",
+    "badge_en": "SPECIAL",
+    "desc_ar": "دفء شرقي لا يقاوم، يمزج بين حرارة القرفة والهيل مع قاعدة غنية من خشب الصندل.",
+    "desc_en": "Irresistible oriental warmth, blending the heat of cinnamon and cardamom with a rich sandalwood base.",
+    "notes_ar": {
+      "top": "قرفة",
+      "mid": "هال",
+      "base": "صندل"
+    },
+    "notes_en": {
+      "top": "Cinnamon",
+      "mid": "Cardamom",
+      "base": "Sandalwood"
+    }
+  },
+  {
+    "id": 65,
+    "title_ar": "Coco mademoiselle",
+    "title_en": "Coco mademoiselle",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (10).jpeg",
+    "badge_ar": "جديد",
+    "badge_en": "NEW",
+    "desc_ar": "عطر القوة والصلابة، مزيج مكثف من التبغ الفاخر والجلود مع لمسة خشب الأرز الحادة.",
+    "desc_en": "The scent of strength and solidity, an intense mix of luxury tobacco, leather, and sharp cedarwood.",
+    "notes_ar": {
+      "top": "تبغ",
+      "mid": "جلود",
+      "base": "أرز"
+    },
+    "notes_en": {
+      "top": "Tobacco",
+      "mid": "Leather",
+      "base": "Cedar"
+    }
+  },
+  {
+    "id": 66,
+    "title_ar": "Eclare",
+    "title_en": "Eclare",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (2).jpeg",
+    "badge_ar": "ناعم",
+    "badge_en": "SOFT",
+    "desc_ar": "إشراقة اليوسفي المبهجة مع رقة الياسمين، عطر خفيف ومنعش مثالي للاستخدام اليومي.",
+    "desc_en": "Cheerful mandarin radiance with jasmine delicacy, a light and fresh scent perfect for daily use.",
+    "notes_ar": {
+      "top": "يوسفي",
+      "mid": "ياسمين",
+      "base": "مسك أبيض"
+    },
+    "notes_en": {
+      "top": "Mandarin",
+      "mid": "Jasmine",
+      "base": "White Musk"
+    }
+  },
+  {
+    "id": 67,
+    "title_ar": "Si Passione",
+    "title_en": "Si Passione",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (3).jpeg",
+    "badge_ar": "فخم",
+    "badge_en": "LUXURY",
+    "desc_ar": "بريق الذهب في عطر، يجمع بين دفء العنبر وسحر الورد مع نوتات خشبية راقية.",
+    "desc_en": "The sparkle of gold in a scent, combining amber warmth and rose charm with elegant woody notes.",
+    "notes_ar": {
+      "top": "أمبر",
+      "mid": "ورد",
+      "base": "أخشاب"
+    },
+    "notes_en": {
+      "top": "Amber",
+      "mid": "Rose",
+      "base": "Woods"
+    }
+  },
+  {
+    "id": 68,
+    "title_ar": "88888888",
+    "title_en": "44444444",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (4).jpeg",
+    "badge_ar": "حصري",
+    "badge_en": "EXCLUSIVE",
+    "desc_ar": "تناقض ساحر بين انتعاش البرغموت وحرارة التوابل مع لمسة فانيليا ناعمة تخطف الأنفاس.",
+    "desc_en": "A charming contrast between bergamot freshness and spice heat with a soft vanilla touch.",
+    "notes_ar": {
+      "top": "برغموت",
+      "mid": "توابل",
+      "base": "فانيليا"
+    },
+    "notes_en": {
+      "top": "Bergamot",
+      "mid": "Spices",
+      "base": "Vanilla"
+    }
+  },
+  {
+    "id": 69,
+    "title_ar": "Kayali pistachio",
+    "title_en": "kayali pistachio",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (5).jpeg",
+    "badge_ar": "جديد",
+    "badge_en": "NEW",
+    "desc_ar": "نسيم الليالي الصيفية، مزيج منعش من الليمون واللافندر مع لمسة صندل هادئة.",
+    "desc_en": "The breeze of summer nights, a fresh mix of lemon and lavender with a calm sandalwood touch.",
+    "notes_ar": {
+      "top": "ليمون",
+      "mid": "لافندر",
+      "base": "صندل"
+    },
+    "notes_en": {
+      "top": "Lemon",
+      "mid": "Lavender",
+      "base": "Sandalwood"
+    }
+  },
+  {
+    "id": 70,
+    "title_ar": "Black opuim",
+    "title_en": "Black opuim",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (6).jpeg",
+    "badge_ar": "شائع",
+    "badge_en": "POPULAR",
+    "desc_ar": "بهجة الفواكه، عطر يجمع بين حيوية التفاح الأحمر وجمال الورد مع دفء العنبر.",
+    "desc_en": "The joy of fruits, combining red apple vitality and rose beauty with amber warmth.",
+    "notes_ar": {
+      "top": "تفاح",
+      "mid": "ورد",
+      "base": "عنبر"
+    },
+    "notes_en": {
+      "top": "Apple",
+      "mid": "Rose",
+      "base": "Amber"
+    }
+  },
+  {
+    "id": 71,
+    "title_ar": "Ysl saint luarent",
+    "title_en": "Ysl saint luarent",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (7).jpeg",
+    "badge_ar": "ناعم",
+    "badge_en": "SOFT",
+    "desc_ar": "عطر الهدوء والسكينة، مزيج ناعم من زهور البنفسج والمسك يمنحك شعوراً بالراحة.",
+    "desc_en": "The scent of calm and tranquility, a soft mix of violet flowers and musk for a comfortable feeling.",
+    "notes_ar": {
+      "top": "بنفسج",
+      "mid": "مسك",
+      "base": "صندل"
+    },
+    "notes_en": {
+      "top": "Violet",
+      "mid": "Musk",
+      "base": "Sandalwood"
+    }
+  },
+  {
+    "id": 72,
+    "title_ar": "Khamra",
+    "title_en": "Khamra",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (8).jpeg",
+    "badge_ar": "فخم",
+    "badge_en": "LUXURY",
+    "desc_ar": "عبق الشرق الأصيل، عطر دخاني غامض يجمع بين البخور الفاخر والعود المعتق.",
+    "desc_en": "The scent of the authentic East, a mysterious smoky fragrance combining luxury incense and aged oud.",
+    "notes_ar": {
+      "top": "بخور",
+      "mid": "عود",
+      "base": "أخشاب"
+    },
+    "notes_en": {
+      "top": "Incense",
+      "mid": "Oud",
+      "base": "Woods"
+    }
+  },
+  {
+    "id": 73,
+    "title_ar": "Bacrat rouge",
+    "title_en": "Baccarat rouge",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (9).jpeg",
+    "badge_ar": "حصري",
+    "badge_en": "EXCLUSIVE",
+    "desc_ar": "جاذبية غامضة، مزيج فريد من الزعفران والباتشولي والمسك يمنحك شخصية استثنائية.",
+    "desc_en": "Mysterious attraction, a unique blend of saffron, patchouli, and musk giving you an exceptional personality.",
+    "notes_ar": {
+      "top": "زعفران",
+      "mid": "باتشولي",
+      "base": "مسك"
+    },
+    "notes_en": {
+      "top": "Saffron",
+      "mid": "Patchouli",
+      "base": "Musk"
+    }
+  },
+  {
+    "id": 74,
+    "title_ar": "Bleu de channel",
+    "title_en": "Bleu de channel",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM.jpeg",
+    "badge_ar": "جديد",
+    "badge_en": "NEW",
+    "desc_ar": "طاقة وحيوية لا تنتهي، مزيج حمضي حاد مع برودة النعناع وقاعدة من خشب الأرز.",
+    "desc_en": "Endless energy and vitality, a sharp citrus mix with mint coolness and a cedarwood base.",
+    "notes_ar": {
+      "top": "حمضيات",
+      "mid": "نعناع",
+      "base": "أرز"
+    },
+    "notes_en": {
+      "top": "Citrus",
+      "mid": "Mint",
+      "base": "Cedar"
+    }
+  },
+  {
+    "id": 75,
+    "title_ar": "000000000",
+    "title_en": "Flower Bouquet",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (1).jpeg",
+    "badge_ar": "مميز",
+    "badge_en": "SPECIAL",
+    "desc_ar": "باقة من الأناقة، يفيض بعبير الياسمين والورد مع لمسة مسك ناعمة وراقية جداً.",
+    "desc_en": "A bouquet of elegance, overflowing with jasmine and rose with a soft, very sophisticated musk touch.",
+    "notes_ar": {
+      "top": "ياسمين",
+      "mid": "ورد",
+      "base": "مسك"
+    },
+    "notes_en": {
+      "top": "Jasmine",
+      "mid": "Rose",
+      "base": "Musk"
+    }
+  },
+  {
+    "id": 76,
+    "title_ar": "العريق",
+    "title_en": "Al-Areeq",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (2).jpeg",
+    "badge_ar": "ناعم",
+    "badge_en": "SOFT",
+    "desc_ar": "عطر الاسترخاء، يمزج بين هدوء اللافندر ودفء الفانيليا مع قاعدة خشبية ناعمة.",
+    "desc_en": "The scent of relaxation, blending lavender calm and vanilla warmth with a soft woody base.",
+    "notes_ar": {
+      "top": "لافندر",
+      "mid": "صندل",
+      "base": "فانيليا"
+    },
+    "notes_en": {
+      "top": "Lavender",
+      "mid": "Sandalwood",
+      "base": "Vanilla"
+    }
+  },
+  {
+    "id": 77,
+    "title_ar": "امير العرب",
+    "title_en": "amir El Arab",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (3).jpeg",
+    "badge_ar": "فخم",
+    "badge_en": "LUXURY",
+    "desc_ar": "فخامة شرقية مكثفة، يمزج بين حرارة الهيل وعمق العود وجاذبية العنبر الأصيل.",
+    "desc_en": "Intense oriental luxury, blending cardamom heat, oud depth, and authentic amber attraction.",
+    "notes_ar": {
+      "top": "هال",
+      "mid": "عود",
+      "base": "عنبر"
+    },
+    "notes_en": {
+      "top": "Cardamom",
+      "mid": "Oud",
+      "base": "Amber"
+    }
+  },
+  {
+    "id": 78,
+    "title_ar": "Coco Vanille",
+    "title_en": "Coco Vanille",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (4).jpeg",
+    "badge_ar": "جديد",
+    "badge_en": "NEW",
+    "desc_ar": "طاقة المحيط، عطر مائي منعش يمنحك شعوراً بالحرية مع لمسات الليمون والمسك.",
+    "desc_en": "Ocean energy, a fresh aquatic scent giving you a sense of freedom with lemon and musk touches.",
+    "notes_ar": {
+      "top": "نوتات بحرية",
+      "mid": "ليمون",
+      "base": "مسك"
+    },
+    "notes_en": {
+      "top": "Sea Notes",
+      "mid": "Lemon",
+      "base": "Musk"
+    }
+  },
+  {
+    "id": 79,
+    "title_ar": "00000000000000",
+    "title_en": "Romantic Amber",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (5).jpeg",
+    "badge_ar": "شائع",
+    "badge_en": "POPULAR",
+    "desc_ar": "مزيج دافئ ورومانسي، يجمع بين رقة الورد وفخامة العنبر مع لمسة صندل ناعمة.",
+    "desc_en": "A warm and romantic blend, combining rose delicacy and amber luxury with a soft sandalwood touch.",
+    "notes_ar": {
+      "top": "ورد",
+      "mid": "أمبر",
+      "base": "صندل"
+    },
+    "notes_en": {
+      "top": "Rose",
+      "mid": "Amber",
+      "base": "Sandalwood"
+    }
+  },
+  {
+    "id": 80,
+    "title_ar": "0000000000000",
+    "title_en": "Bold Leather",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (6).jpeg",
+    "badge_ar": "حصري",
+    "badge_en": "EXCLUSIVE",
+    "desc_ar": "عطر الشخصية القوية، مزيج جريء من التوابل والجلود والباتشولي يمنحك حضوراً لا ينسى.",
+    "desc_en": "The scent of strong personality, a bold mix of spices, leather, and patchouli.",
+    "notes_ar": {
+      "top": "توابل",
+      "mid": "جلود",
+      "base": "باتشولي"
+    },
+    "notes_en": {
+      "top": "Spices",
+      "mid": "Leather",
+      "base": "Patchouli"
+    }
+  },
+  {
+    "id": 81,
+    "title_ar": "ليل ساطع",
+    "title_en": "lil sateh",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (7).jpeg",
+    "badge_ar": "جديد",
+    "badge_en": "NEW",
+    "desc_ar": "حديقة من الزهور، عطر رقيق يمزج بين الياسمين والبنفسج مع قاعدة مسكية ناعمة.",
+    "desc_en": "A garden of flowers, a delicate scent blending jasmine and violet with a soft musky base.",
+    "notes_ar": {
+      "top": "ياسمين",
+      "mid": "بنفسج",
+      "base": "مسك"
+    },
+    "notes_en": {
+      "top": "Jasmine",
+      "mid": "Violet",
+      "base": "Musk"
+    }
+  },
+  {
+    "id": 82,
+    "title_ar": "Kayali yum boujee marshmallow",
+    "title_en": "Kayali yum boujee marshmallow",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM.jpeg",
+    "badge_ar": "فخم",
+    "badge_en": "LUXURY",
+    "desc_ar": "خلاصة الأخشاب العطرية، مزيج فاخر من خشب الأرز والصندل والعود لأناقة دائمة.",
+    "desc_en": "The essence of aromatic woods, a luxury blend of cedar, sandal, and oud for lasting elegance.",
+    "notes_ar": {
+      "top": "أرز",
+      "mid": "صندل",
+      "base": "عود"
+    },
+    "notes_en": {
+      "top": "Cedar",
+      "mid": "Sandalwood",
+      "base": "Oud"
+    }
+  },
+  {
+    "id": 83,
+    "title_ar": "Strnger With You amber",
+    "title_en": "Strnger With You amber",
+    "vendor": "F&S Fregrances",
+    "price": 499,
+    "currency_ar": "جنيه",
+    "currency_en": "EGP",
+    "image": "pf/WhatsApp Image 2026-06-02 at 4.58.20 PM.jpeg",
+    "badge_ar": "جديد",
+    "badge_en": "NEW",
+    "desc_ar": "عطر الزعفران الملكي، مزيج فاخر من الزعفران والعنبر والمسك يمنحك هيبة لا تقاوم.",
+    "desc_en": "Royal Saffron fragrance, a luxury blend of saffron, amber, and musk giving you irresistible prestige.",
+    "notes_ar": {
+      "top": "زعفران",
+      "mid": "عنبر",
+      "base": "مسك ملكي"
+    },
+    "notes_en": {
+      "top": "Saffron",
+      "mid": "Amber",
+      "base": "Royal Musk"
+    }
+  }
+]
