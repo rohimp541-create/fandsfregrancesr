@@ -32,3 +32,8 @@ Thumbs.db
 # Sensitive files (auto-detected)
 verify_run.log
 
+# SQLite Temp & Cache Files
+backend/data/*.db-shm
+backend/data/*.db-wal
+backend/logs/
+

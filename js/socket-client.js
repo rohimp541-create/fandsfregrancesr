@@ -11,7 +11,7 @@ const FSSocket = {
       return null;
     }
 
-    if (this.socket?.connected) return this.socket;
+    if (this.socket) return this.socket;
 
     this.socket = io(FSStore.getSocketUrl(), {
       transports: ['websocket', 'polling'],

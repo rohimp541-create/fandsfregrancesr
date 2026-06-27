@@ -24,6 +24,35 @@ let customersCache = [];
 let currentProductImage = '';
 const imgPrefix = '../';
 
+let apiProducts = [];
+
+async function refreshProductsFromAPI() {
+    try {
+        apiProducts = [];
+        if (typeof FSApi !== 'undefined' && typeof FSApi.getProducts === 'function') {
+            const response = await FSApi.getProducts();
+            const payload = response?.data ?? response;
+            const list = Array.isArray(payload)
+                ? payload
+                : (payload?.products || payload?.items || payload?.data || []);
+
+            const mapped = (Array.isArray(list) ? list : []).map(p => {
+                return (typeof FSApi.mapProductToFrontend === 'function')
+                    ? FSApi.mapProductToFrontend(p)
+                    : p;
+            });
+            apiProducts = mapped;
+        }
+    } catch (err) {
+        console.error("Failed to load products from API:", err);
+        apiProducts = [];
+    }
+}
+
+function getProducts() {
+    return apiProducts;
+}
+
 async function loadOrders() {
     try {
         const response = await FSApi.getOrders();

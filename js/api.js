@@ -130,6 +130,11 @@ const FSApi = {
     return this.put('/settings', settings);
   },
 
+  // Customers
+  getCustomers() {
+    return this.get('/customers');
+  },
+
   mapProductToFrontend(apiProduct) {
     const base = FSStore.getSocketUrl();
     let image = apiProduct.image || '';

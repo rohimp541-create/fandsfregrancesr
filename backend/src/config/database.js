@@ -8,6 +8,9 @@ let sqliteDb = null;
 let dbType = config.dbType;
 
 function convertPlaceholders(sql) {
+  if (dbType === 'sqlite') {
+    return sql.replace(/\s+FOR\s+UPDATE\s*/gi, ' ');
+  }
   return sql;
 }
 
