@@ -82,7 +82,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (1).jpeg",
+        image: "images/1.jpeg",
         badge_ar: "جديد",
         badge_en: "NEW",
         desc_ar: "عطر غامض وجذاب يجمع بين سحر الياسمين الأبيض ودفء العنبر والمسك، لإطلالة أنثوية فريدة.",
@@ -98,7 +98,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (2).jpeg",
+        image: "images/2.jpeg",
         badge_ar: "مميز",
         badge_en: "SPECIAL",
         desc_ar: "عطر رومانسي يجسد قصة حب في باريس، يمزج بين الورد الجوري ودفء الفانيليا وخشب الصندل.",
@@ -114,7 +114,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (3).jpeg",
+        image: "images/3.jpeg",
         badge_ar: "حصري",
         badge_en: "EXCLUSIVE",
         desc_ar: "رمز الرجولة والحرية، مزيج بري ومنعش من البرغموت واللافندر مع قاعدة قوية من الباتشولي.",
@@ -130,7 +130,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (4).jpeg",
+        image: "images/4.jpeg",
         badge_ar: "شائع",
         badge_en: "POPULAR",
         desc_ar: "عطر الجلود الفاخرة، يمنحك شعوراً بالقوة والغموض مع نفحات التبغ والتوابل الحارة.",
@@ -146,7 +146,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (5).jpeg",
+        image: "images/5.jpeg",
         badge_ar: "جديد",
         badge_en: "NEW",
         desc_ar: "عطر يعبر عن الأنوثة العصرية، يمزج بين حلاوة الكمثرى ورقة زهور الأوركيد والمسك الأبيض.",
@@ -162,7 +162,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (6).jpeg",
+        image: "images/6.jpeg",
         badge_ar: "فخم",
         badge_en: "LUXURY",
         desc_ar: "من أرقى عطور العود العالمية، يتميز برائحة البخور والأخشاب النادرة لإطلالة ملكية فخمة.",
@@ -178,7 +178,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (7).jpeg",
+        image: "images/7.jpeg",
         badge_ar: "ناعم",
         badge_en: "SOFT",
         desc_ar: "عطر الانتعاش الإيطالي، يمزج بين نقاء النيرولي وزنبق الوادي مع قاعدة صندل دافئة.",
@@ -194,7 +194,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM (8).jpeg",
+        image: "images/8.jpeg",
         badge_ar: "مثير",
         badge_en: "SEXY",
         desc_ar: "عطر فواح يجمع بين أجود أنواع الورد الأحمر والمسك، مع لمسة فلفل أسود تزيد من جاذبيته.",
@@ -210,7 +210,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.06 AM.jpeg",
+        image: "images/9.jpeg",
         badge_ar: "حصري",
         badge_en: "HOT",
         desc_ar: "العطر الأكثر شهرة عالمياً، مزيج فريد من الزعفران والياسمين مع المسك الملكي لإطلالة باهرة.",
@@ -226,7 +226,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (1).jpeg",
+        image: "images/10.jpeg",
         badge_ar: "جديد",
         badge_en: "NEW",
         desc_ar: "عطر الرجل العصري الأنيق، مزيج منعش من الحمضيات والنعناع مع عمق نجيل الهند.",
@@ -242,7 +242,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (2).jpeg",
+        image: "images/11.jpeg",
         badge_ar: "مميز",
         badge_en: "SPECIAL",
         desc_ar: "عطر لعشاق الروائح الدافئة، يفوح برائحة الكاكاو والكاكاو مع لمسة فانيليا ساحرة.",
@@ -258,7 +258,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (3).jpeg",
+        image: "images/12.jpeg",
         badge_ar: "فخم",
         badge_en: "LUXURY",
         desc_ar: "عطر النخبة، يتميز برائحة خشب الصندل والأرز مع لمسة ياسمين تعطي توازناً مذهلاً.",
@@ -274,7 +274,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (4).jpeg",
+        image: "images/13.jpeg",
         badge_ar: "منعش",
         badge_en: "FRESH",
         desc_ar: "عطر الانتعاش البحري الكلاسيكي، مزيج من الليمون والمسك والنوتات المائية الصافية.",
@@ -290,7 +290,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (5).jpeg",
+        image: "images/14.jpeg",
         badge_ar: "جديد",
         badge_en: "NEW",
         desc_ar: "عطر الفخامة العمانية، مزيج معقد من البخور والجلود والأخشاب الداكنة لإطلالة مهيبة.",
@@ -306,7 +306,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (7).jpeg",
+        image: "images/15.jpeg",
         badge_ar: "حصري",
         badge_en: "HOT",
         desc_ar: "عطر الأنوثة الباريسية، مزيج ساحر من التوت الأحمر وزهور البنفسج وقاعدة الباتشولي.",
@@ -322,7 +322,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (8).jpeg",
+        image: "images/16.jpeg",
         badge_ar: "فخم",
         badge_en: "LUXURY",
         desc_ar: "النسخة الأكثر تركيزاً وفخامة، تمزج بين الزعفران والعود الملكي والأمبرغريس لأناقة لا تُنسى.",
@@ -338,7 +338,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM (9).jpeg",
+        image: "images/17.jpeg",
         badge_ar: "جديد",
         badge_en: "NEW",
         desc_ar: "عطر الرومانسية، باقة زهرية من الفاوانيا والورد الجوري مع لمسة مسك ناعمة كالحلم.",
@@ -354,7 +354,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.07 AM.jpeg",
+        image: "images/18.jpeg",
         badge_ar: "شائع",
         badge_en: "POPULAR",
         desc_ar: "عطر الرجل العصري الأنيق، يجمع بين انتعاش البرغموت واللافندر وعمق الطحالب العطرية.",
@@ -370,7 +370,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (1).jpeg",
+        image: "images/19.jpeg",
         badge_ar: "مميز",
         badge_en: "SPECIAL",
         desc_ar: "دفء شرقي لا يقاوم، يمزج بين حرارة القرفة والهيل مع قاعدة غنية من خشب الصندل.",
@@ -386,7 +386,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (10).jpeg",
+        image: "images/20.jpeg",
         badge_ar: "جديد",
         badge_en: "NEW",
         desc_ar: "عطر القوة والصلابة، مزيج مكثف من التبغ الفاخر والجلود مع لمسة خشب الأرز الحادة.",
@@ -402,7 +402,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (2).jpeg",
+        image: "images/21.jpeg",
         badge_ar: "ناعم",
         badge_en: "SOFT",
         desc_ar: "إشراقة اليوسفي المبهجة مع رقة الياسمين، عطر خفيف ومنعش مثالي للاستخدام اليومي.",
@@ -418,7 +418,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (3).jpeg",
+        image: "images/22.jpeg",
         badge_ar: "فخم",
         badge_en: "LUXURY",
         desc_ar: "بريق الذهب في عطر، يجمع بين دفء العنبر وسحر الورد مع نوتات خشبية راقية.",
@@ -434,7 +434,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (4).jpeg",
+        image: "images/23.jpeg",
         badge_ar: "حصري",
         badge_en: "EXCLUSIVE",
         desc_ar: "تناقض ساحر بين انتعاش البرغموت وحرارة التوابل مع لمسة فانيليا ناعمة تخطف الأنفاس.",
@@ -450,7 +450,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (5).jpeg",
+        image: "images/24.jpeg",
         badge_ar: "جديد",
         badge_en: "NEW",
         desc_ar: "نسيم الليالي الصيفية، مزيج منعش من الليمون واللافندر مع لمسة صندل هادئة.",
@@ -466,7 +466,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (6).jpeg",
+        image: "images/25.jpeg",
         badge_ar: "شائع",
         badge_en: "POPULAR",
         desc_ar: "بهجة الفواكه، عطر يجمع بين حيوية التفاح الأحمر وجمال الورد مع دفء العنبر.",
@@ -482,7 +482,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (7).jpeg",
+        image: "images/26.jpeg",
         badge_ar: "ناعم",
         badge_en: "SOFT",
         desc_ar: "عطر الهدوء والسكينة، مزيج ناعم من زهور البنفسج والمسك يمنحك شعوراً بالراحة.",
@@ -498,7 +498,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (8).jpeg",
+        image: "images/27.jpeg",
         badge_ar: "فخم",
         badge_en: "LUXURY",
         desc_ar: "عبق الشرق الأصيل، عطر دخاني غامض يجمع بين البخور الفاخر والعود المعتق.",
@@ -514,7 +514,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM (9).jpeg",
+        image: "images/28.jpeg",
         badge_ar: "حصري",
         badge_en: "EXCLUSIVE",
         desc_ar: "جاذبية غامضة، مزيج فريد من الزعفران والباتشولي والمسك يمنحك شخصية استثنائية.",
@@ -530,7 +530,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.08 AM.jpeg",
+        image: "images/29.jpeg",
         badge_ar: "جديد",
         badge_en: "NEW",
         desc_ar: "طاقة وحيوية لا تنتهي، مزيج حمضي حاد مع برودة النعناع وقاعدة من خشب الأرز.",
@@ -546,7 +546,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (1).jpeg",
+        image: "images/30.jpeg",
         badge_ar: "مميز",
         badge_en: "SPECIAL",
         desc_ar: "باقة من الأناقة، يفيض بعبير الياسمين والورد مع لمسة مسك ناعمة وراقية جداً.",
@@ -562,7 +562,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (2).jpeg",
+        image: "images/31.jpeg",
         badge_ar: "ناعم",
         badge_en: "SOFT",
         desc_ar: "عطر الاسترخاء، يمزج بين هدوء اللافندر ودفء الفانيليا مع قاعدة خشبية ناعمة.",
@@ -578,7 +578,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (3).jpeg",
+        image: "images/32.jpeg",
         badge_ar: "فخم",
         badge_en: "LUXURY",
         desc_ar: "فخامة شرقية مكثفة، يمزج بين حرارة الهيل وعمق العود وجاذبية العنبر الأصيل.",
@@ -594,7 +594,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (4).jpeg",
+        image: "images/33.jpeg",
         badge_ar: "جديد",
         badge_en: "NEW",
         desc_ar: "طاقة المحيط، عطر مائي منعش يمنحك شعوراً بالحرية مع لمسات الليمون والمسك.",
@@ -610,7 +610,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (5).jpeg",
+        image: "images/34.jpeg",
         badge_ar: "شائع",
         badge_en: "POPULAR",
         desc_ar: "مزيج دافئ ورومانسي، يجمع بين رقة الورد وفخامة العنبر مع لمسة صندل ناعمة.",
@@ -626,7 +626,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (6).jpeg",
+        image: "images/35.jpeg",
         badge_ar: "حصري",
         badge_en: "EXCLUSIVE",
         desc_ar: "عطر الشخصية القوية، مزيج جريء من التوابل والجلود والباتشولي يمنحك حضوراً لا ينسى.",
@@ -642,7 +642,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM (7).jpeg",
+        image: "images/36.jpeg",
         badge_ar: "جديد",
         badge_en: "NEW",
         desc_ar: "حديقة من الزهور، عطر رقيق يمزج بين الياسمين والبنفسج مع قاعدة مسكية ناعمة.",
@@ -658,7 +658,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 2.13.09 AM.jpeg",
+        image: "images/37.jpeg",
         badge_ar: "فخم",
         badge_en: "LUXURY",
         desc_ar: "خلاصة الأخشاب العطرية، مزيج فاخر من خشب الأرز والصندل والعود لأناقة دائمة.",
@@ -674,7 +674,7 @@ const products = [
         price: 499,
         currency_ar: "جنيه",
         currency_en: "EGP",
-        image: "pf/WhatsApp Image 2026-06-02 at 4.58.20 PM.jpeg",
+        image: "images/38.jpeg",
         badge_ar: "جديد",
         badge_en: "NEW",
         desc_ar: "عطر الزعفران الملكي، مزيج فاخر من الزعفران والعنبر والمسك يمنحك هيبة لا تقاوم.",
@@ -836,53 +836,179 @@ function applySettings() {
         return;
     }
 
-    const offerText = currentLang === 'ar' ? appSettings.offer_text_ar : appSettings.offer_text_en;
-    if (!offerText) return;
-
-    if (appSettings.offer_type === 'banner') {
-        const banner = document.createElement('div');
-        banner.id = 'dynamic-offer-banner';
-        banner.style.cssText = 'background: #d4af37; color: #000; padding: 10px 20px; font-weight: bold; text-align: center; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center; z-index: 10000; position: relative;';
-        
-        banner.innerHTML = `
-            <div style="flex: 1; text-align: center;">${offerText}</div>
-            <button onclick="closeOffer('banner')" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; font-weight: bold; color: #000; padding: 0 5px;">&times;</button>
+    // Always display as a beautiful popup message when entering the website
+    if (!document.getElementById('popup-style-tag')) {
+        const style = document.createElement('style');
+        style.id = 'popup-style-tag';
+        style.innerHTML = `
+            @keyframes popupAnim { 
+                from { transform: scale(0.85); opacity: 0; } 
+                to { transform: scale(1); opacity: 1; } 
+            }
+            .offer-popup-overlay {
+                position: fixed; 
+                top: 0; 
+                left: 0; 
+                width: 100%; 
+                height: 100%; 
+                background: rgba(0,0,0,0.85); 
+                z-index: 100000; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center;
+                backdrop-filter: blur(4px);
+            }
+            .offer-popup-card {
+                background: #121212; 
+                border: 2px solid #d4af37; 
+                border-radius: 16px; 
+                padding: 25px 20px; 
+                max-width: 380px; 
+                width: 88%; 
+                text-align: center; 
+                box-shadow: 0 15px 35px rgba(0,0,0,0.6); 
+                position: relative; 
+                animation: popupAnim 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+            .offer-popup-close {
+                position: absolute; 
+                top: 12px; 
+                right: 15px; 
+                background: none; 
+                border: none; 
+                font-size: 1.6rem; 
+                color: #888; 
+                cursor: pointer;
+                transition: color 0.2s;
+                line-height: 1;
+            }
+            .offer-popup-close:hover {
+                color: #fff;
+            }
+            .offer-popup-icon {
+                font-size: 2.5rem; 
+                color: #d4af37; 
+                margin-bottom: 8px;
+                animation: pulse 2s infinite;
+            }
+            .offer-popup-title {
+                color: #fff; 
+                margin-bottom: 6px; 
+                font-size: 1.25rem;
+                font-weight: 700;
+            }
+            .offer-popup-text {
+                color: #aaa; 
+                line-height: 1.4; 
+                font-size: 0.88rem; 
+                margin-bottom: 18px;
+                padding: 0 10px;
+            }
+            .offer-popup-prices {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                margin-bottom: 20px;
+            }
+            .offer-popup-price-item {
+                background: #1a1a1a;
+                border: 1px solid #2a2a2a;
+                border-radius: 10px;
+                padding: 10px 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: border-color 0.2s, background 0.2s;
+            }
+            .offer-popup-price-item:hover {
+                border-color: #d4af37;
+                background: #222;
+            }
+            .offer-popup-qty {
+                color: #eee;
+                font-weight: 600;
+                font-size: 0.9rem;
+            }
+            .offer-popup-val {
+                color: #d4af37;
+                font-weight: 700;
+                font-size: 1rem;
+            }
+            .offer-popup-btn {
+                background: #d4af37;
+                color: #000;
+                width: 100%; 
+                font-weight: bold; 
+                padding: 12px; 
+                border-radius: 30px; 
+                border: none; 
+                cursor: pointer;
+                font-size: 0.95rem;
+                transition: background 0.2s, transform 0.2s;
+                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            }
+            .offer-popup-btn:hover {
+                background: #f1c40f;
+                transform: translateY(-2px);
+            }
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.08); }
+                100% { transform: scale(1); }
+            }
         `;
-        document.body.insertBefore(banner, document.body.firstChild);
-    } else if (appSettings.offer_type === 'popup') {
-        if (!document.getElementById('popup-style-tag')) {
-            const style = document.createElement('style');
-            style.id = 'popup-style-tag';
-            style.innerHTML = `@keyframes popupAnim { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }`;
-            document.head.appendChild(style);
-        }
-
-        const popup = document.createElement('div');
-        popup.id = 'dynamic-offer-popup';
-        popup.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 100000; display: flex; align-items: center; justify-content: center;';
-        
-        popup.innerHTML = `
-            <div style="background: #1a1a1a; border: 1px solid #d4af37; border-radius: 12px; padding: 30px; max-width: 450px; width: 90%; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5); position: relative; animation: popupAnim 0.3s ease-out;">
-                <button onclick="closeOffer('popup')" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 1.5rem; color: #fff; cursor: pointer;">&times;</button>
-                <div style="font-size: 2.5rem; color: #d4af37; margin-bottom: 15px;"><i class="fa-solid fa-gift"></i></div>
-                <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.3rem;">${currentLang === 'ar' ? 'عرض خاص' : 'Special Offer'}</h3>
-                <p style="color: #ccc; line-height: 1.6; font-size: 1rem; margin-bottom: 20px;">${offerText}</p>
-                <button onclick="closeOffer('popup')" class="btn btn-gold" style="width: 100%; font-weight: bold; padding: 12px; border-radius: 25px; border: none; cursor: pointer;">${currentLang === 'ar' ? 'استمرار' : 'Continue'}</button>
-            </div>
-        `;
-        document.body.appendChild(popup);
+        document.head.appendChild(style);
     }
+
+    const popup = document.createElement('div');
+    popup.id = 'dynamic-offer-popup';
+    popup.className = 'offer-popup-overlay';
+
+    popup.innerHTML = `
+        <div class="offer-popup-card">
+            <button onclick="closeOffer('popup')" class="offer-popup-close">&times;</button>
+            <div class="offer-popup-icon"><i class="fa-solid fa-fire"></i></div>
+            <h3 class="offer-popup-title">${currentLang === 'ar' ? 'عرض محدود 🔥🔥' : 'Limited Time Offer 🔥🔥'}</h3>
+            <p class="offer-popup-text">
+                ${currentLang === 'ar' 
+                    ? 'جميع القطع أوت ليت أعلى كواليتي، ثبات عالي، وفوحان ممتاز.' 
+                    : 'All pieces are outlet premium quality, long lasting, and excellent performance.'}
+            </p>
+            <div class="offer-popup-prices">
+                <div class="offer-popup-price-item">
+                    <span class="offer-popup-qty">${currentLang === 'ar' ? '1 قطعة' : '1 Piece'}</span>
+                    <span class="offer-popup-val">${currentLang === 'ar' ? '500 جنيه' : '500 EGP'}</span>
+                </div>
+                <div class="offer-popup-price-item">
+                    <span class="offer-popup-qty">${currentLang === 'ar' ? '2 قطعة' : '2 Pieces'}</span>
+                    <span class="offer-popup-val">${currentLang === 'ar' ? '950 جنيه' : '950 EGP'}</span>
+                </div>
+                <div class="offer-popup-price-item">
+                    <span class="offer-popup-qty">${currentLang === 'ar' ? '3 قطع' : '3 Pieces'}</span>
+                    <span class="offer-popup-val">${currentLang === 'ar' ? '1350 جنيه' : '1350 EGP'}</span>
+                </div>
+            </div>
+            <button onclick="shopNowFromOffer()" class="offer-popup-btn">${currentLang === 'ar' ? 'تسوق الآن 🛍️' : 'Shop Now 🛍️'}</button>
+        </div>
+    `;
+    document.body.appendChild(popup);
 }
 
 function closeOffer(type) {
     sessionStorage.setItem('offer_closed', 'true');
-    if (type === 'banner') {
-        document.getElementById('dynamic-offer-banner')?.remove();
-    } else {
-        document.getElementById('dynamic-offer-popup')?.remove();
-    }
+    document.getElementById('dynamic-offer-banner')?.remove();
+    document.getElementById('dynamic-offer-popup')?.remove();
 }
 window.closeOffer = closeOffer;
+
+function shopNowFromOffer() {
+    closeOffer('popup');
+    const target = document.getElementById('new-arrivals');
+    if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+window.shopNowFromOffer = shopNowFromOffer;
 
 function saveFavorites() {
     localStorage.setItem('oud_favorites', JSON.stringify(favorites));

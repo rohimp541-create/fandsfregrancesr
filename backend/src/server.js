@@ -31,7 +31,7 @@ async function startServer() {
   server.listen(config.port, () => {
     logger.info(`F&S Fragrances server running on http://localhost:${config.port}`);
     logger.info(`Storefront: http://localhost:${config.port}/`);
-    logger.info(`Admin Panel: http://localhost:${config.port}/admin/login.html`);
+    logger.info(`Admin Panel: http://localhost:${config.port}/manage-fs-7465/login.html`);
     logger.info(`API: http://localhost:${config.port}/api/health`);
   });
 }
