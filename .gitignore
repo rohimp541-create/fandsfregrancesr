@@ -46,3 +46,4 @@ store.db-wal
 .vercel
 .env*
 out.txt
+github/
