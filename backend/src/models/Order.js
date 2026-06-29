@@ -31,7 +31,7 @@ function formatOrder(row, items = []) {
 
 const Order = {
   async findAll() {
-    const orders = await query('SELECT * FROM orders ORDER BY created_at DESC');
+    const orders = await query('SELECT * FROM orders ORDER BY id DESC');
     const result = [];
 
     for (const order of orders) {

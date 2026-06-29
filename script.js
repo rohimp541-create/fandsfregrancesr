@@ -3,7 +3,7 @@
 // ============================================================
 const translations = {
     ar: {
-        topPromo: "شحن مجاني للطلبات فوق 500 جنيه | منتجات أصلية 100%",
+        topPromo: "منتجات أصلية 100% | خامات أصلية وثبات عالي",
         navHome: "الرئيسية",
         navPerfumes: "العطور",
         navOud: "العود",
@@ -36,7 +36,7 @@ const translations = {
         addCartBtn: "أضف للسلة"
     },
     en: {
-        topPromo: "Free shipping on orders over 500 EGP | 100% Original Products",
+        topPromo: "100% Original Products | Premium Quality & High Stability",
         navHome: "Home",
         navPerfumes: "Perfumes",
         navOud: "Oud",
@@ -837,10 +837,12 @@ function applySettings() {
         return;
     }
 
-    const offerText = (currentLang === 'ar' ? appSettings.offer_text_ar : appSettings.offer_text_en)
-        || (currentLang === 'ar' 
-            ? 'شحن مجاني للطلبات فوق 500 جنيه | منتجات أصلية 100%' 
-            : 'Free shipping on orders over 500 EGP | 100% Original Products');
+    let offerText = (currentLang === 'ar' ? appSettings.offer_text_ar : appSettings.offer_text_en);
+    if (!offerText || offerText.includes('500')) {
+        offerText = (currentLang === 'ar' 
+            ? '🔥 عرض خاص لفترة محدودة! 🔥\nاحصل على قطعتين بـ 950 جنيه (توفير 48 جنيه)\nأو 3 قطع بـ 1350 جنيه فقط (توفير 147 جنيه!)' 
+            : '🔥 Limited Time Offer! 🔥\nBuy 2 bottles for 950 EGP (Save 48 EGP)\nor 3 bottles for 1350 EGP (Save 147 EGP!)');
+    }
 
     const offerType = appSettings.offer_type || 'popup';
 
@@ -850,7 +852,7 @@ function applySettings() {
         banner.style.cssText = 'background: #d4af37; color: #000; padding: 10px 20px; font-weight: bold; text-align: center; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center; z-index: 10000; position: relative;';
         
         banner.innerHTML = `
-            <div style="flex: 1; text-align: center;">${offerText}</div>
+            <div style="flex: 1; text-align: center; white-space: pre-line;">${offerText}</div>
             <button onclick="closeOffer('banner')" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; font-weight: bold; color: #000; padding: 0 5px;">&times;</button>
         `;
         document.body.insertBefore(banner, document.body.firstChild);
@@ -871,7 +873,7 @@ function applySettings() {
                 <button onclick="closeOffer('popup')" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 1.5rem; color: #fff; cursor: pointer;">&times;</button>
                 <div style="font-size: 2.5rem; color: #d4af37; margin-bottom: 15px;"><i class="fa-solid fa-gift"></i></div>
                 <h3 style="color: #fff; margin-bottom: 15px; font-size: 1.3rem;">${currentLang === 'ar' ? 'عرض خاص' : 'Special Offer'}</h3>
-                <p style="color: #ccc; line-height: 1.6; font-size: 1rem; margin-bottom: 20px;">${offerText}</p>
+                <p style="color: #ccc; line-height: 1.6; font-size: 1rem; margin-bottom: 20px; white-space: pre-line;">${offerText}</p>
                 <button onclick="closeOffer('popup')" class="btn btn-gold" style="width: 100%; font-weight: bold; padding: 12px; border-radius: 25px; border: none; cursor: pointer;">${currentLang === 'ar' ? 'استمرار' : 'Continue'}</button>
             </div>
         `;

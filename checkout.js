@@ -67,26 +67,26 @@ async function handleCheckout(event) {
     event.preventDefault();
     event.stopPropagation();
 
-    // Validation: name (>=3 chars), phone (>=11 digits and digits only)
+    // Validation: name (>=3 chars), phone (exactly 11 digits)
     if (name.length < 3) {
-        if (messageEl) messageEl.innerText = '❌ اسم العميل يجب ألا يقل عن 3 أحرف.';
+        if (messageEl) messageEl.innerText = '❌ الاسم الكامل يجب ألا يقل عن 3 أحرف.';
         return;
     }
-    // Phone: digits only, at least 11 digits (allow spaces/dashes visually but strip them)
+    // Phone: digits only, exactly 11 digits (allow spaces/dashes visually but strip them)
     const phoneDigitsOnly = phone.replace(/[\s\-]/g, '');
-    if (!/^\d{11,}$/.test(phoneDigitsOnly)) {
-        if (messageEl) messageEl.innerText = '❌ رقم الهاتف يجب أن يكون أرقاماً فقط ولا يقل عن 11 رقم.';
+    if (!/^\d{11}$/.test(phoneDigitsOnly)) {
+        if (messageEl) messageEl.innerText = '❌ رقم الهاتف يجب أن يتكون من 11 رقماً بالضبط.';
         return;
     }
     if (address.length < 5) {
-        if (messageEl) messageEl.innerText = '❌ يرجى إدخال عنوان صحيح (5 أحرف على الأقل).';
+        if (messageEl) messageEl.innerText = '❌ يرجى إدخال عنوان كامل وصحيح (5 أحرف على الأقل).';
         return;
     }
 
     const total = calculateCartTotal(cart);
     const orderPayload = {
         customer_name: name,
-        phone,
+        phone: phoneDigitsOnly,
         address,
         total_price: total,
         items: cart.map(item => ({

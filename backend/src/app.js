@@ -15,6 +15,15 @@ function createApp() {
   app.use(express.urlencoded({ extended: true }));
   app.use(requestLogger);
 
+  // Disable caching for all API responses
+  app.use('/api', (req, res, next) => {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    next();
+  });
+
+
   const isVercel = process.env.VERCEL === '1' || process.env.VERCEL === 'true' || process.env.VERCEL === true;
   const uploadsPath = isVercel
     ? '/tmp/uploads'
