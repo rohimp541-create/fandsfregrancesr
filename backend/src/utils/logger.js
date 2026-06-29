@@ -2,9 +2,42 @@ const winston = require('winston');
 const path = require('path');
 const fs = require('fs');
 
-const logsDir = path.join(__dirname, '../../logs');
-if (!fs.existsSync(logsDir)) {
-  fs.mkdirSync(logsDir, { recursive: true });
+const isVercel = process.env.VERCEL === '1' || process.env.VERCEL === 'true' || process.env.VERCEL === true;
+
+const transports = [
+  new winston.transports.Console({
+    format: winston.format.combine(
+      winston.format.colorize(),
+      winston.format.printf(({ timestamp, level, message }) => {
+        return `[${timestamp}] ${level}: ${message}`;
+      })
+    ),
+  }),
+];
+
+if (!isVercel) {
+  const logsDir = path.join(__dirname, '../../logs');
+  if (!fs.existsSync(logsDir)) {
+    try {
+      fs.mkdirSync(logsDir, { recursive: true });
+    } catch (err) {
+      console.warn('Failed to create logs directory:', err.message);
+    }
+  }
+
+  try {
+    transports.push(
+      new winston.transports.File({
+        filename: path.join(logsDir, 'error.log'),
+        level: 'error',
+      }),
+      new winston.transports.File({
+        filename: path.join(logsDir, 'combined.log'),
+      })
+    );
+  } catch (err) {
+    console.warn('Failed to add file transports:', err.message);
+  }
 }
 
 const logger = winston.createLogger({
@@ -18,23 +51,7 @@ const logger = winston.createLogger({
         : `[${timestamp}] ${level.toUpperCase()}: ${message}`;
     })
   ),
-  transports: [
-    new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.printf(({ timestamp, level, message }) => {
-          return `[${timestamp}] ${level}: ${message}`;
-        })
-      ),
-    }),
-    new winston.transports.File({
-      filename: path.join(logsDir, 'error.log'),
-      level: 'error',
-    }),
-    new winston.transports.File({
-      filename: path.join(logsDir, 'combined.log'),
-    }),
-  ],
+  transports: transports,
 });
 
 module.exports = logger;

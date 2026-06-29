@@ -159,6 +159,7 @@ const FSApi = {
       notes_en: apiProduct.notes_en || { top: '-', mid: '-', base: '-' },
       stock_quantity: apiProduct.stock_quantity ?? 0,
       in_stock: apiProduct.in_stock ?? (apiProduct.stock_quantity > 0),
+      is_active: apiProduct.is_active !== undefined ? Number(apiProduct.is_active) : 1,
     };
   },
 };

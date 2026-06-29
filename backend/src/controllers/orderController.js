@@ -1,6 +1,7 @@
 const Order = require('../models/Order');
 const eventBus = require('../events/eventBus');
 const { asyncHandler } = require('../middleware/errorHandler');
+const googleSheets = require('../utils/googleSheets');
 
 function formatProductForSocket(row) {
   return {
@@ -72,6 +73,9 @@ const orderController = {
         eventBus.emitProductUpdated(formatProductForSocket(p));
       });
 
+      // Sync to Google Sheets (non-blocking)
+      googleSheets.syncOrder(order, 'create');
+
       res.status(201).json({ success: true, data: order });
     } catch (error) {
       error.statusCode = 400;
@@ -92,6 +96,10 @@ const orderController = {
       }
 
       eventBus.emitOrderUpdated(order);
+
+      // Sync to Google Sheets (non-blocking)
+      googleSheets.syncOrder(order, 'update');
+
       res.json({ success: true, data: order });
     } catch (error) {
       error.statusCode = 400;

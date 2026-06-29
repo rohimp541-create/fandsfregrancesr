@@ -33,6 +33,7 @@ function formatProduct(row) {
     title_en: row.name_en,
     desc_ar: row.description,
     desc_en: row.description_en,
+    is_active: row.is_active !== undefined ? Number(row.is_active) : 1,
   };
 }
 
@@ -51,8 +52,8 @@ const Product = {
 
   async create(data) {
     const result = await query(
-      `INSERT INTO products (name, name_en, price, image, description, description_en, stock_quantity, vendor, badge_ar, badge_en, notes_ar, notes_en)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO products (name, name_en, price, image, description, description_en, stock_quantity, vendor, badge_ar, badge_en, notes_ar, notes_en, is_active)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         data.name,
         data.name_en || data.name,
@@ -66,6 +67,7 @@ const Product = {
         data.badge_en || null,
         data.notes_ar ? JSON.stringify(data.notes_ar) : null,
         data.notes_en ? JSON.stringify(data.notes_en) : null,
+        data.is_active !== undefined ? (data.is_active ? 1 : 0) : 1,
       ]
     );
     return this.findById(result.insertId);
@@ -77,7 +79,7 @@ const Product = {
 
     const allowed = [
       'name', 'name_en', 'price', 'image', 'description', 'description_en',
-      'stock_quantity', 'vendor', 'badge_ar', 'badge_en',
+      'stock_quantity', 'vendor', 'badge_ar', 'badge_en', 'is_active',
     ];
 
     allowed.forEach((key) => {

@@ -3,7 +3,7 @@ require('dotenv').config();
 module.exports = {
   port: parseInt(process.env.PORT, 10) || 3000,
   nodeEnv: process.env.NODE_ENV || 'development',
-  dbType: (process.env.DB_TYPE || 'mysql').toLowerCase(),
+  dbType: (process.env.DB_TYPE || 'sqlite').toLowerCase(),
   db: {
     host: process.env.DB_HOST || 'localhost',
     port: parseInt(process.env.DB_PORT, 10) || 3306,

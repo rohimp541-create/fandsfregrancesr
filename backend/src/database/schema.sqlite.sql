@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS products (
   badge_en TEXT,
   notes_ar TEXT,
   notes_en TEXT,
+  is_active INTEGER NOT NULL DEFAULT 1,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );

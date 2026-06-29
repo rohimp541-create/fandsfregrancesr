@@ -28,6 +28,16 @@ async function initMySQL() {
     enableKeepAlive: true,
   });
   await pool.execute('SELECT 1');
+  try {
+    await pool.execute("ALTER TABLE products ADD COLUMN is_active TINYINT(1) NOT NULL DEFAULT 1");
+    logger.info("Database: Column 'is_active' added to products table successfully.");
+  } catch (err) {
+    if (err.message.includes("duplicate column") || err.message.includes("already exists") || err.message.includes("Duplicate column name")) {
+      logger.debug("Database: Column 'is_active' already exists in products table.");
+    } else {
+      logger.warn(`Database: Failed to add 'is_active' column: ${err.message}`);
+    }
+  }
   logger.info('Connected to MySQL database');
 }
 
@@ -47,6 +57,17 @@ function initSQLite() {
   const schemaPath = path.join(__dirname, '../database/schema.sqlite.sql');
   const schema = fs.readFileSync(schemaPath, 'utf8');
   sqliteDb.exec(schema);
+
+  try {
+    sqliteDb.exec("ALTER TABLE products ADD COLUMN is_active INTEGER NOT NULL DEFAULT 1");
+    logger.info("Database: Column 'is_active' added to products table successfully.");
+  } catch (err) {
+    if (err.message.includes("duplicate column name") || err.message.includes("already exists")) {
+      logger.debug("Database: Column 'is_active' already exists in products table.");
+    } else {
+      logger.warn(`Database: Failed to add 'is_active' column: ${err.message}`);
+    }
+  }
 
   logger.info(`Connected to SQLite database: ${dbPath}`);
 }

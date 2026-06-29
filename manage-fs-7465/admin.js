@@ -146,6 +146,7 @@ function openProductForm(id = null) {
         form.prod_stock.value = p.stock_quantity ?? 0;
         form.prod_desc_ar.value = p.desc_ar;
         form.prod_desc_en.value = p.desc_en;
+        form.prod_status.value = p.is_active !== undefined ? String(p.is_active) : "1";
         currentProductImage = p.image;
         if (preview) {
             preview.src = p.image || '';
@@ -155,6 +156,7 @@ function openProductForm(id = null) {
         title.innerText = 'إضافة منتج جديد';
         form.reset();
         form.prod_id.value = '';
+        form.prod_status.value = "1";
         if (preview) { preview.src = ''; preview.style.display = 'none'; }
     }
 
@@ -192,6 +194,7 @@ async function saveProductAdmin(event) {
         description_en: form.prod_desc_en.value,
         image: imageUrl,
         vendor: 'F&S Fragrances',
+        is_active: parseInt(form.prod_status.value, 10),
     };
 
     try {
@@ -218,13 +221,19 @@ function renderAdminProducts() {
     container.innerHTML = all.map(p => {
         const stockClass = p.stock_quantity <= 0 ? 'stock-out' : 'stock-in';
         const stockText = p.stock_quantity <= 0 ? 'Out Of Stock' : `متبقي: ${p.stock_quantity}`;
+        const isActive = p.is_active !== 0;
+        const statusText = isActive ? 'نشط' : 'غير نشط';
+        const statusColor = isActive ? '#2ecc71' : '#ff4d4d';
         return `
         <div class="admin-prod-card" onclick="openProductForm(${p.id})" style="cursor: pointer;">
             <img src="${p.image || ''}" width="50" onerror="this.src='https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=200'">
             <div class="info">
                 <strong>${p.title_ar}</strong>
                 <span>${p.price} جنيه</span>
-                <small class="${stockClass}">${stockText}</small>
+                <div style="margin-top: 4px; display: flex; gap: 8px; align-items: center;">
+                    <small class="${stockClass}">${stockText}</small>
+                    <span style="background: ${statusColor}; color: #000; padding: 1px 6px; border-radius: 4px; font-size: 11px; font-weight: bold;">${statusText}</span>
+                </div>
             </div>
             <div class="btns">
                 <button class="edit-btn" onclick="event.stopPropagation(); openProductForm(${p.id})"><i class="fa-solid fa-pen"></i></button>
@@ -354,6 +363,13 @@ function injectProductUI() {
                         <div class="form-group"><label>الكمية المتوفرة (Stock)</label><input type="number" name="prod_stock" min="0" value="0" required></div>
                         <div class="form-group"><label>الوصف (عربي)</label><textarea name="prod_desc_ar" required></textarea></div>
                         <div class="form-group"><label>الوصف (EN)</label><textarea name="prod_desc_en" required></textarea></div>
+                        <div class="form-group">
+                            <label>حالة المنتج</label>
+                            <select name="prod_status" style="width:100%; padding:14px; background:#151515; border:1px solid #222; color:#fff; border-radius:12px; font-size:15px; cursor:pointer;">
+                                <option value="1">نشط (يظهر في المتجر)</option>
+                                <option value="0">غير نشط (مخفي)</option>
+                            </select>
+                        </div>
                         <div class="form-group image-upload-section">
                             <label>صورة المنتج</label>
                             <div class="custom-file-upload" onclick="document.getElementById('admin-image-input').click()">

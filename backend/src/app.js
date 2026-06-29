@@ -15,7 +15,11 @@ function createApp() {
   app.use(express.urlencoded({ extended: true }));
   app.use(requestLogger);
 
-  app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+  const isVercel = process.env.VERCEL === '1' || process.env.VERCEL === 'true' || process.env.VERCEL === true;
+  const uploadsPath = isVercel
+    ? '/tmp/uploads'
+    : path.join(__dirname, '../uploads');
+  app.use('/uploads', express.static(uploadsPath));
   app.use('/api', apiRoutes);
 
   app.use(express.static(projectRoot));

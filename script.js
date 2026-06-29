@@ -828,7 +828,8 @@ function applySettings() {
     document.getElementById('dynamic-offer-banner')?.remove();
     document.getElementById('dynamic-offer-popup')?.remove();
 
-    if (appSettings.offer_enabled !== 'true') {
+    const offerEnabled = appSettings.offer_enabled !== undefined ? appSettings.offer_enabled : 'true';
+    if (offerEnabled !== 'true') {
         return;
     }
 
@@ -836,10 +837,14 @@ function applySettings() {
         return;
     }
 
-    const offerText = currentLang === 'ar' ? appSettings.offer_text_ar : appSettings.offer_text_en;
-    if (!offerText) return;
+    const offerText = (currentLang === 'ar' ? appSettings.offer_text_ar : appSettings.offer_text_en)
+        || (currentLang === 'ar' 
+            ? 'شحن مجاني للطلبات فوق 500 جنيه | منتجات أصلية 100%' 
+            : 'Free shipping on orders over 500 EGP | 100% Original Products');
 
-    if (appSettings.offer_type === 'banner') {
+    const offerType = appSettings.offer_type || 'popup';
+
+    if (offerType === 'banner') {
         const banner = document.createElement('div');
         banner.id = 'dynamic-offer-banner';
         banner.style.cssText = 'background: #d4af37; color: #000; padding: 10px 20px; font-weight: bold; text-align: center; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center; z-index: 10000; position: relative;';
@@ -849,7 +854,7 @@ function applySettings() {
             <button onclick="closeOffer('banner')" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; font-weight: bold; color: #000; padding: 0 5px;">&times;</button>
         `;
         document.body.insertBefore(banner, document.body.firstChild);
-    } else if (appSettings.offer_type === 'popup') {
+    } else if (offerType === 'popup') {
         if (!document.getElementById('popup-style-tag')) {
             const style = document.createElement('style');
             style.id = 'popup-style-tag';
@@ -994,7 +999,7 @@ function renderProducts(searchTerm = '') {
     const container = document.getElementById('products-container');
     if (!container) return;
 
-    const allProducts = getProducts();
+    const allProducts = getProducts().filter(p => p.is_active !== 0);
     const term = (searchTerm || '').trim().toLowerCase();
 
     const filtered = term

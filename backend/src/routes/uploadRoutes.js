@@ -5,9 +5,17 @@ const fs = require('fs');
 const { authenticateToken } = require('../middleware/auth');
 const { asyncHandler } = require('../middleware/errorHandler');
 
-const uploadsDir = path.join(__dirname, '../../uploads');
+const isVercel = process.env.VERCEL === '1' || process.env.VERCEL === 'true' || process.env.VERCEL === true;
+const uploadsDir = isVercel
+  ? '/tmp/uploads'
+  : path.join(__dirname, '../../uploads');
+
 if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
+  try {
+    fs.mkdirSync(uploadsDir, { recursive: true });
+  } catch (err) {
+    console.error('Failed to create uploads directory:', err.message);
+  }
 }
 
 const storage = multer.diskStorage({
