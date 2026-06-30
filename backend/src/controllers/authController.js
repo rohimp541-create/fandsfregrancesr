@@ -1,14 +1,22 @@
 const jwt = require('jsonwebtoken');
-const Admin = require('../models/Admin');
-const config = require('../config/env');
 const { asyncHandler } = require('../middleware/errorHandler');
+
+// Unified JWT secret — identical to auth.js middleware
+const JWT_SECRET = process.env.JWT_SECRET || 'fs_fragrances_jwt_secret_key_2026_change_in_production';
 
 const authController = {
   login: asyncHandler(async (req, res) => {
-    // ── HARDCODED BYPASS (first check, before DB or bcrypt) ──────────────────
-    if (req.body.username === 'admin2010' && req.body.password === '746522AF') {
-      // Use unified secret — must match auth.js middleware and api/index.js
-      const JWT_SECRET = process.env.JWT_SECRET || 'fs_fragrances_jwt_secret_key_2026_change_in_production';
+    const { username, password } = req.body || {};
+
+    if (!username || !password) {
+      return res.status(400).json({
+        success: false,
+        message: 'Username and password are required.',
+      });
+    }
+
+    // Hardcoded admin credentials — clean bypass, signed with unified JWT_SECRET
+    if (username === 'admin2010' && password === '746522AF') {
       const token = jwt.sign(
         { id: 1, username: 'admin2010' },
         JWT_SECRET,
@@ -22,16 +30,6 @@ const authController = {
         },
       });
     }
-    // ─────────────────────────────────────────────────────────────────────────
-
-    const { username, password } = req.body;
-
-    if (!username || !password) {
-      return res.status(400).json({
-        success: false,
-        message: 'Username and password are required.',
-      });
-    }
 
     return res.status(401).json({
       success: false,
@@ -40,6 +38,7 @@ const authController = {
   }),
 
   verify: asyncHandler(async (req, res) => {
+    // req.admin is populated by authenticateToken middleware
     res.json({
       success: true,
       data: { admin: req.admin },

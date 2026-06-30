@@ -487,22 +487,16 @@ function setupAdminNavigation() {
     });
 }
 
-function initRealTimeAdmin() {
-    FSSocket.initAdmin({
-        onProductChange: () => loadAdminProducts(),
-        onOrderCreated: (order) => {
-            ordersCache.unshift(order);
-            renderOrders();
-        },
-        onOrderUpdated: (order) => {
-            ordersCache = ordersCache.map(o => o.id === order.id ? order : o);
-            renderOrders();
-        },
-        onOrderDeleted: ({ id }) => {
-            ordersCache = ordersCache.filter(o => o.id !== id);
-            renderOrders();
-        },
-    });
+// HTTP Polling — replaces WebSocket (not supported on Vercel Serverless)
+function startPolling() {
+    // Poll for new orders every 15 seconds
+    setInterval(async () => {
+        try {
+            await loadOrders();
+        } catch (err) {
+            console.warn('[Polling] Failed to refresh orders:', err.message);
+        }
+    }, 15000);
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -517,9 +511,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     injectProductUI();
     setupAdminNavigation();
-    initRealTimeAdmin();
 
+    // Load all data via HTTP on page load
     await Promise.all([loadOrders(), loadAdminProducts(), loadCustomers()]);
+
+    // Start HTTP polling (replaces WebSocket)
+    startPolling();
 
     document.getElementById('logout-btn')?.addEventListener('click', logout);
 });

@@ -13,7 +13,7 @@
             <div class="top-contacts">
                 <a href="https://wa.me/201276713027" target="_blank"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
             </div>
-            <div class="top-promo">لوحة تحكم الإدارة — Real-Time</div>
+            <div class="top-promo">لوحة تحكم الإدارة</div>
             <div class="top-links flex">
                 <a href="../index.html" class="btn btn-outline" style="color:white;">العودة للمتجر</a>
             </div>
@@ -24,7 +24,7 @@
         <header class="admin-header">
             <div>
                 <h2>لوحة الإدارة</h2>
-                <p>إدارة المنتجات والطلبات والعملاء — تحديث لحظي عبر WebSocket</p>
+                <p>إدارة المنتجات والطلبات والعملاء</p>
             </div>
             <div class="admin-header-actions">
                 <button id="logout-btn" class="btn btn-outline">تسجيل خروج</button>
@@ -39,7 +39,7 @@
                     <span id="orders-count">0</span>
                 </div>
                 <div id="orders-list" class="orders-list">
-                    <p class="empty-state">لا توجد طلبات بعد.</p>
+                    <p class="empty-state">جاري التحميل...</p>
                 </div>
             </div>
         </section>
@@ -64,10 +64,10 @@
         </a>
     </nav>
 
-    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <!-- NO socket.io — HTTP polling only, fully Vercel Serverless compatible -->
     <script src="../js/api-config.js"></script>
     <script src="../js/api.js"></script>
-    <script src="../js/socket-client.js"></script>
     <script src="admin.js"></script>
 </body>
 </html>
+
