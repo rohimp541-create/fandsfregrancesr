@@ -54,12 +54,22 @@ function getProducts() {
 }
 
 async function loadOrders() {
+    const container = document.getElementById('orders-list');
     try {
         const response = await FSApi.getOrders();
         ordersCache = response.data || [];
-        renderOrders();
     } catch (err) {
         console.error('Failed to load orders:', err.message);
+        ordersCache = [];
+    } finally {
+        // Always update UI — never leave "جاري التحميل" stuck
+        if (ordersCache.length === 0 && container) {
+            container.innerHTML = '<p class="empty-state">لا توجد طلبات بعد.</p>';
+            const count = document.getElementById('orders-count');
+            if (count) count.innerText = '0';
+        } else {
+            renderOrders();
+        }
     }
 }
 
@@ -67,18 +77,22 @@ async function loadCustomers() {
     try {
         const response = await FSApi.getCustomers();
         customersCache = response.data || [];
-        renderCustomers();
     } catch (err) {
         console.error('Failed to load customers:', err.message);
+        customersCache = [];
+    } finally {
+        renderCustomers();
     }
 }
 
 async function loadAdminProducts() {
     try {
         await refreshProductsFromAPI();
-        renderAdminProducts();
     } catch (err) {
         console.error('Failed to load products:', err.message);
+        apiProducts = [];
+    } finally {
+        renderAdminProducts();
     }
 }
 
@@ -487,6 +501,40 @@ function setupAdminNavigation() {
     });
 }
 
+async function loadSettings() {
+    try {
+        const response = await FSApi.getSettings();
+        const settings = response.data || {};
+        const offerEnabled = document.getElementById('sett-offer-enabled');
+        const offerType = document.getElementById('sett-offer-type');
+        const offerTextAr = document.getElementById('sett-offer-text-ar');
+        const offerTextEn = document.getElementById('sett-offer-text-en');
+        if (offerEnabled) offerEnabled.checked = settings.offer_enabled === 'true' || settings.offer_enabled === true;
+        if (offerType) offerType.value = settings.offer_type || 'banner';
+        if (offerTextAr) offerTextAr.value = settings.offer_text_ar || '';
+        if (offerTextEn) offerTextEn.value = settings.offer_text_en || '';
+    } catch (err) {
+        console.error('Failed to load settings:', err.message);
+    }
+}
+
+async function saveSettingsAdmin(event) {
+    event.preventDefault();
+    const form = event.target;
+    const settings = {
+        offer_enabled: form.offer_enabled.checked ? 'true' : 'false',
+        offer_type: form.offer_type.value,
+        offer_text_ar: form.offer_text_ar.value,
+        offer_text_en: form.offer_text_en.value,
+    };
+    try {
+        await FSApi.updateSettings(settings);
+        alert('✅ تم حفظ الإعدادات بنجاح!');
+    } catch (err) {
+        alert(err.message || 'فشل حفظ الإعدادات');
+    }
+}
+
 // HTTP Polling — replaces WebSocket (not supported on Vercel Serverless)
 function startPolling() {
     // Poll for new orders every 15 seconds
@@ -500,22 +548,33 @@ function startPolling() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+    // Step 1: Check local token exists before making a network call
     ensureAuthenticated();
 
+    // Step 2: Verify token with server — on failure show error instead of silent loop
     try {
         await FSApi.verifyAuth();
-    } catch {
-        logout();
+    } catch (err) {
+        console.error('[Admin] verifyAuth failed:', err?.message || err);
+        // If 401/403, clear token and redirect cleanly
+        FSApi.setToken(null);
+        window.location.href = 'login.html';
         return;
     }
 
+    // Step 3: Build UI structure
     injectProductUI();
     setupAdminNavigation();
 
-    // Load all data via HTTP on page load
-    await Promise.all([loadOrders(), loadAdminProducts(), loadCustomers()]);
+    // Step 4: Load all data — each function handles its own errors + UI update in finally
+    await Promise.all([
+        loadOrders(),
+        loadAdminProducts(),
+        loadCustomers(),
+        loadSettings()
+    ]);
 
-    // Start HTTP polling (replaces WebSocket)
+    // Step 5: Start HTTP polling for orders every 15s (replaces WebSocket)
     startPolling();
 
     document.getElementById('logout-btn')?.addEventListener('click', logout);
