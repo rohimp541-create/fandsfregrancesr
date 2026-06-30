@@ -17,10 +17,24 @@ async function initMySQL() {
     connectionLimit: 10,
     queueLimit: 0,
     enableKeepAlive: true,
+    charset: 'utf8mb4',
     ssl: { rejectUnauthorized: true, minVersion: 'TLSv1.2' }
   });
 
   await pool.execute('SELECT 1');
+  try {
+    const tables = ['products', 'admins', 'customers', 'orders', 'order_items', 'settings'];
+    for (const table of tables) {
+      try {
+        await pool.execute(`ALTER TABLE ${table} CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci`);
+      } catch (e) {
+        // Table might not exist yet during initial run before ensureTablesExist
+      }
+    }
+    logger.info("Database: All existing tables converted to utf8mb4 successfully.");
+  } catch (err) {
+    logger.warn(`Database: Failed to convert tables to utf8mb4: ${err.message}`);
+  }
   try {
     await pool.execute("ALTER TABLE products ADD COLUMN is_active TINYINT(1) NOT NULL DEFAULT 1");
     logger.info("Database: Column 'is_active' added to products table successfully.");

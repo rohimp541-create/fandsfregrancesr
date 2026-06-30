@@ -754,7 +754,7 @@ async function refreshProductsFromAPI() {
 
 function getProducts() {
     // الأفضلية: API إن كانت نجحت فعلاً
-    if (apiProducts && apiProducts.length > 0) return apiProducts;
+    if (apiProducts && apiProducts.length > 0) return apiProducts.sort((a, b) => b.id - a.id);
 
     // Fallback قوي: المنتجات الثابتة داخل script.js
     const base = products.map(p => ({
@@ -776,36 +776,7 @@ function getProducts() {
         in_stock: true
     }));
 
-    // إن كان لديك تعديلات محلية للأدمن، قم بدمجها بدون الاعتماد على Firebase
-    try {
-        const adminProds = JSON.parse(localStorage.getItem('fs_admin_products') || '[]');
-        const hiddenMap = JSON.parse(localStorage.getItem('fs_hidden_products') || '{}');
-
-        const hiddenIds = new Set(Object.keys(hiddenMap).map(Number));
-
-        let list = base.filter(p => !hiddenIds.has(p.id));
-
-        if (Array.isArray(adminProds) && adminProds.length) {
-            adminProds.forEach(ap => {
-                if (!ap || typeof ap.id === 'undefined' || ap.id === null) return;
-                if (hiddenIds.has(Number(ap.id))) return;
-                const idx = list.findIndex(p => p.id === ap.id);
-                const normalized = {
-                    ...ap,
-                    notes_ar: ap.notes_ar || { top: '-', mid: '-', base: '-' },
-                    notes_en: ap.notes_en || { top: '-', mid: '-', base: '-' },
-                    in_stock: ap.in_stock ?? (ap.stock_quantity > 0),
-                    stock_quantity: ap.stock_quantity ?? (ap.in_stock ? 50 : 0),
-                };
-                if (idx > -1) list[idx] = normalized;
-                else list.push(normalized);
-            });
-        }
-
-        return list.sort((a, b) => b.id - a.id);
-    } catch {
-        return base.sort((a, b) => b.id - a.id);
-    }
+    return base.sort((a, b) => b.id - a.id);
 }
 
 
