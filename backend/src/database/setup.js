@@ -1,7 +1,7 @@
 const mysql = require('mysql2/promise');
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+require('dotenv').config({ path: path.join(__dirname, '../../../.env') });
 
 async function setup() {
   const config = {
@@ -10,6 +10,7 @@ async function setup() {
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
     multipleStatements: true,
+    ssl: { rejectUnauthorized: true, minVersion: 'TLSv1.2' }
   };
 
   console.log('Connecting to MySQL...');
@@ -26,6 +27,6 @@ async function setup() {
 }
 
 setup().catch((err) => {
-  console.error('Database setup failed:', err.message);
+  console.error('Database setup failed:', err);
   process.exit(1);
 });

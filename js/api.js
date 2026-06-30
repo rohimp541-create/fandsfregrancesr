@@ -16,8 +16,19 @@ const FSApi = {
   },
 
   async request(endpoint, options = {}) {
-    const url = `${FSStore.getApiBase()}${endpoint}`;
-    const headers = { 'Content-Type': 'application/json', ...options.headers };
+    const method = (options.method || 'GET').toUpperCase();
+    let url = `${FSStore.getApiBase()}${endpoint}`;
+    if (method === 'GET') {
+      const separator = url.includes('?') ? '&' : '?';
+      url = `${url}${separator}_t=${Date.now()}`;
+    }
+    const headers = { 
+      'Content-Type': 'application/json', 
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0',
+      ...options.headers 
+    };
 
     const token = this.getToken();
     if (token) headers.Authorization = `Bearer ${token}`;

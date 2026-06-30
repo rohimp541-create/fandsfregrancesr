@@ -1,6 +1,4 @@
 -- F&S Fragrances Database Schema
-CREATE DATABASE IF NOT EXISTS fs_fragrances CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE fs_fragrances;
 
 CREATE TABLE IF NOT EXISTS admins (
   id INT AUTO_INCREMENT PRIMARY KEY,
