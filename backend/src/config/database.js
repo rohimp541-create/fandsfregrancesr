@@ -14,28 +14,35 @@ async function initMySQL() {
   let poolConfig;
 
   if (process.env.DATABASE_URL) {
+    // [DIAG] Using DATABASE_URL connection string
+    console.log('[DB-DIAG] Mode: DATABASE_URL', process.env.DATABASE_URL.replace(/:([^@]+)@/, ':***@'));
     poolConfig = {
       uri: process.env.DATABASE_URL,
       waitForConnections: true,
-      connectionLimit: 3,      // Serverless: keep low to avoid connection exhaustion
+      connectionLimit: 3,
       queueLimit: 0,
       charset: 'utf8mb4',
       ssl: { minVersion: 'TLSv1.2', rejectUnauthorized: false },
     };
   } else {
+    // [DIAG] Log which values are being used (mask password)
+    const resolvedHost = process.env.DB_HOST     || 'gateway01.eu-central-1.prod.aws.tidbcloud.com';
+    const resolvedUser = process.env.DB_USER     || '3Y9q1Gqup1FU8tg.root';
+    const resolvedDb   = process.env.DB_NAME     || 'sys';
+    const resolvedPort = parseInt(process.env.DB_PORT, 10) || 4000;
+    const pwSource     = process.env.DB_PASSWORD ? 'env:DB_PASSWORD' : (process.env.DB_PASS ? 'env:DB_PASS' : 'hardcoded-fallback');
+    console.log(`[DB-DIAG] Mode: individual vars | host=${resolvedHost} user=${resolvedUser} db=${resolvedDb} port=${resolvedPort} pw-source=${pwSource}`);
+
     poolConfig = {
-      host:     process.env.DB_HOST     || 'gateway01.eu-central-1.prod.aws.tidbcloud.com',
-      user:     process.env.DB_USER     || '3Y9q1Gqup1FU8tg.root',
+      host:     resolvedHost,
+      user:     resolvedUser,
       password: process.env.DB_PASSWORD || process.env.DB_PASS || 'D4fe9u140YpchH9j',
-      database: process.env.DB_NAME     || 'sys',
-      port:     parseInt(process.env.DB_PORT, 10) || 4000,
+      database: resolvedDb,
+      port:     resolvedPort,
       waitForConnections: true,
       connectionLimit: 3,
       queueLimit: 0,
       charset: 'utf8mb4',
-      // rejectUnauthorized:false required on Vercel — their runtime lacks
-      // the CA bundle needed to verify TiDB's certificate chain.
-      // TiDB Cloud still enforces TLS in transit regardless of this flag.
       ssl: { minVersion: 'TLSv1.2', rejectUnauthorized: false },
     };
   }
@@ -43,7 +50,15 @@ async function initMySQL() {
 
   pool = mysql.createPool(poolConfig);
 
-  await pool.execute('SELECT 1');
+  // [DIAG] Test connection — this line will throw if credentials/SSL are wrong
+  console.log('[DB-DIAG] Testing connection with SELECT 1...');
+  try {
+    await pool.execute('SELECT 1');
+    console.log('[DB-DIAG] ✅ Connection test PASSED — TiDB is reachable');
+  } catch (connErr) {
+    console.error('[DB-DIAG] ❌ Connection test FAILED:', connErr.message, '| code:', connErr.code);
+    throw connErr; // re-throw so initDatabase() caller knows
+  }
   try {
     const tables = ['products', 'admins', 'customers', 'orders', 'order_items', 'settings'];
     for (const table of tables) {
