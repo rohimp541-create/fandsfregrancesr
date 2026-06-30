@@ -4,30 +4,22 @@ const config = require('./env');
 const logger = require('../utils/logger');
 
 let pool = null;
-let sqliteDb = null;
-let dbType = config.dbType;
-
-function convertPlaceholders(sql) {
-  if (dbType === 'sqlite') {
-    return sql.replace(/\s+FOR\s+UPDATE\s*/gi, ' ');
-  }
-  return sql;
-}
 
 async function initMySQL() {
   const mysql = require('mysql2/promise');
   pool = mysql.createPool({
-    host: config.db.host,
-    port: config.db.port,
-    user: config.db.user,
-    password: config.db.password,
-    database: config.db.database,
+    host: process.env.DB_HOST || 'gateway01.eu-central-1.prod.aws.tidbcloud.com',
+    user: process.env.DB_USER || '3Y9q1Gqup1FU8tg.root',
+    password: process.env.DB_PASS || process.env.DB_PASSWORD || 'D4fe9u140YpchH9j',
+    database: process.env.DB_NAME || 'sys',
+    port: parseInt(process.env.DB_PORT, 10) || 4000,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
     enableKeepAlive: true,
     ssl: { rejectUnauthorized: true, minVersion: 'TLSv1.2' }
   });
+
   await pool.execute('SELECT 1');
   try {
     await pool.execute("ALTER TABLE products ADD COLUMN is_active TINYINT(1) NOT NULL DEFAULT 1");
@@ -40,37 +32,6 @@ async function initMySQL() {
     }
   }
   logger.info('Connected to MySQL database');
-}
-
-function initSQLite() {
-  const Database = require('better-sqlite3');
-  const dbPath = path.isAbsolute(config.db.sqlitePath)
-    ? config.db.sqlitePath
-    : path.join(__dirname, '../../', config.db.sqlitePath);
-
-  const dir = path.dirname(dbPath);
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-
-  sqliteDb = new Database(dbPath);
-  sqliteDb.pragma('journal_mode = WAL');
-  sqliteDb.pragma('foreign_keys = ON');
-
-  const schemaPath = path.join(__dirname, '../database/schema.sqlite.sql');
-  const schema = fs.readFileSync(schemaPath, 'utf8');
-  sqliteDb.exec(schema);
-
-  try {
-    sqliteDb.exec("ALTER TABLE products ADD COLUMN is_active INTEGER NOT NULL DEFAULT 1");
-    logger.info("Database: Column 'is_active' added to products table successfully.");
-  } catch (err) {
-    if (err.message.includes("duplicate column name") || err.message.includes("already exists")) {
-      logger.debug("Database: Column 'is_active' already exists in products table.");
-    } else {
-      logger.warn(`Database: Failed to add 'is_active' column: ${err.message}`);
-    }
-  }
-
-  logger.info(`Connected to SQLite database: ${dbPath}`);
 }
 
 async function ensureTablesExist() {
@@ -144,67 +105,21 @@ async function seedDefaultData() {
 }
 
 async function initDatabase() {
-  if (dbType === 'sqlite') {
-    initSQLite();
-    return;
-  }
-
-  try {
-    await initMySQL();
-    await ensureTablesExist();
-  } catch (err) {
-    logger.warn(`MySQL connection failed (${err.message}). Falling back to SQLite for development.`);
-    dbType = 'sqlite';
-    initSQLite();
-  }
+  await initMySQL();
+  await ensureTablesExist();
 }
 
 async function query(sql, params = []) {
-  if (dbType === 'sqlite') {
-    const isInsert = /^\s*INSERT/i.test(sql);
-    const isUpdate = /^\s*UPDATE/i.test(sql);
-    const isDelete = /^\s*DELETE/i.test(sql);
-    const converted = convertPlaceholders(sql);
-    const stmt = sqliteDb.prepare(converted);
-
-    if (isInsert || isUpdate || isDelete) {
-      const result = stmt.run(...params);
-      if (isInsert) {
-        return { insertId: Number(result.lastInsertRowid), affectedRows: result.changes };
-      }
-      return { affectedRows: result.changes };
-    }
-
-    return stmt.all(...params);
-  }
-
   const [rows] = await pool.execute(sql, params);
   return rows;
 }
 
 async function getConnection() {
-  if (dbType === 'sqlite') {
-    return {
-      _sqlite: true,
-      async beginTransaction() { sqliteDb.exec('BEGIN'); },
-      async commit() { sqliteDb.exec('COMMIT'); },
-      async rollback() { sqliteDb.exec('ROLLBACK'); },
-      async execute(sql, params = []) {
-        const converted = convertPlaceholders(sql);
-        const stmt = sqliteDb.prepare(converted);
-        const isSelect = /^\s*SELECT/i.test(sql);
-        if (isSelect) return [stmt.all(...params)];
-        const result = stmt.run(...params);
-        return [{ insertId: Number(result.lastInsertRowid), affectedRows: result.changes }];
-      },
-      release() {},
-    };
-  }
   return pool.getConnection();
 }
 
 function getDbType() {
-  return dbType;
+  return 'mysql';
 }
 
 module.exports = { initDatabase, query, getConnection, getDbType };
