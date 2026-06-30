@@ -7,19 +7,41 @@ let pool = null;
 
 async function initMySQL() {
   const mysql = require('mysql2/promise');
-  pool = mysql.createPool({
-    host: process.env.DB_HOST || 'gateway01.eu-central-1.prod.aws.tidbcloud.com',
-    user: process.env.DB_USER || '3Y9q1Gqup1FU8tg.root',
-    password: process.env.DB_PASS || process.env.DB_PASSWORD || 'D4fe9u140YpchH9j',
-    database: process.env.DB_NAME || 'sys',
-    port: parseInt(process.env.DB_PORT, 10) || 4000,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0,
-    enableKeepAlive: true,
-    charset: 'utf8mb4',
-    ssl: { rejectUnauthorized: true, minVersion: 'TLSv1.2' }
-  });
+
+  // ── Build pool config ────────────────────────────────────────────────────
+  // Prefer DATABASE_URL (single connection string set in Vercel env vars).
+  // Fall back to individual variables (local dev / .env).
+  let poolConfig;
+
+  if (process.env.DATABASE_URL) {
+    poolConfig = {
+      uri: process.env.DATABASE_URL,
+      waitForConnections: true,
+      connectionLimit: 3,      // Serverless: keep low to avoid connection exhaustion
+      queueLimit: 0,
+      charset: 'utf8mb4',
+      ssl: { minVersion: 'TLSv1.2', rejectUnauthorized: false },
+    };
+  } else {
+    poolConfig = {
+      host:     process.env.DB_HOST     || 'gateway01.eu-central-1.prod.aws.tidbcloud.com',
+      user:     process.env.DB_USER     || '3Y9q1Gqup1FU8tg.root',
+      password: process.env.DB_PASSWORD || process.env.DB_PASS || 'D4fe9u140YpchH9j',
+      database: process.env.DB_NAME     || 'sys',
+      port:     parseInt(process.env.DB_PORT, 10) || 4000,
+      waitForConnections: true,
+      connectionLimit: 3,
+      queueLimit: 0,
+      charset: 'utf8mb4',
+      // rejectUnauthorized:false required on Vercel — their runtime lacks
+      // the CA bundle needed to verify TiDB's certificate chain.
+      // TiDB Cloud still enforces TLS in transit regardless of this flag.
+      ssl: { minVersion: 'TLSv1.2', rejectUnauthorized: false },
+    };
+  }
+  // ─────────────────────────────────────────────────────────────────────────
+
+  pool = mysql.createPool(poolConfig);
 
   await pool.execute('SELECT 1');
   try {
