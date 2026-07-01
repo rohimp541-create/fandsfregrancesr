@@ -4,6 +4,8 @@ function loadCart() {
     return JSON.parse(localStorage.getItem(cartKey) || '[]');
 }
 
+const STOCK_STORAGE_KEY = 'oud_stock_levels';
+
 function calculateCartTotal(cartItems) {
     const totalQty = cartItems.reduce((acc, item) => acc + item.qty, 0);
     let total = 0;
@@ -14,6 +16,34 @@ function calculateCartTotal(cartItems) {
         else { total += 499; remaining -= 1; }
     }
     return total;
+}
+
+function loadStockLevels() {
+    try {
+        const stored = JSON.parse(localStorage.getItem(STOCK_STORAGE_KEY) || '{}');
+        if (stored && typeof stored === 'object') {
+            const normalized = {};
+            Object.entries(stored).forEach(([key, value]) => {
+                normalized[String(key)] = Math.max(0, Number(value) || 0);
+            });
+            return normalized;
+        }
+    } catch (_) {}
+    return {};
+}
+
+function saveStockLevels(stockLevels) {
+    localStorage.setItem(STOCK_STORAGE_KEY, JSON.stringify(stockLevels));
+}
+
+function decrementLocalStock(items) {
+    const stockLevels = loadStockLevels();
+    items.forEach((item) => {
+        const id = String(item.product_id || item.id);
+        const current = Number(stockLevels[id] ?? 10);
+        stockLevels[id] = Math.max(0, current - Number(item.quantity || 1));
+    });
+    saveStockLevels(stockLevels);
 }
 
 function renderCheckoutItems() {
@@ -115,6 +145,7 @@ async function handleCheckout(event) {
 
     try {
         await sendOrderDirectly(orderPayload);
+        decrementLocalStock(orderPayload.items || []);
 
         localStorage.removeItem(cartKey);
         sessionStorage.setItem('last_order', JSON.stringify(orderPayload));

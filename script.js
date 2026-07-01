@@ -687,6 +687,53 @@ const products = [
 // ============================================================
 // State
 // ============================================================
+const STOCK_STORAGE_KEY = 'oud_stock_levels';
+
+function loadStockLevels() {
+    try {
+        const stored = JSON.parse(localStorage.getItem(STOCK_STORAGE_KEY) || '{}');
+        if (stored && typeof stored === 'object') {
+            const normalized = {};
+            Object.entries(stored).forEach(([key, value]) => {
+                normalized[String(key)] = Math.max(0, Number(value) || 0);
+            });
+            return normalized;
+        }
+    } catch (_) {}
+
+    const defaults = {};
+    products.forEach((product) => {
+        defaults[String(product.id)] = 10;
+    });
+    return defaults;
+}
+
+const stockLevels = loadStockLevels();
+
+function saveStockLevels() {
+    localStorage.setItem(STOCK_STORAGE_KEY, JSON.stringify(stockLevels));
+}
+
+function getStockLevel(id) {
+    return Number(stockLevels[String(id)] ?? 10);
+}
+
+function setStockLevel(id, value) {
+    stockLevels[String(id)] = Math.max(0, Number(value) || 0);
+    saveStockLevels();
+}
+
+function getCartQtyForProduct(id) {
+    const existing = cart.find(item => item.id === id);
+    return existing ? existing.qty : 0;
+}
+
+function canAddToCart(id, requestedQty = 1) {
+    const stockLeft = getStockLevel(id);
+    const currentQty = getCartQtyForProduct(id);
+    return stockLeft > 0 && currentQty + requestedQty <= 3 && requestedQty <= stockLeft;
+}
+
 let cart = JSON.parse(localStorage.getItem('oud_cart')) || [];
 let favorites = JSON.parse(localStorage.getItem('oud_favorites')) || [];
 let currentLang = localStorage.getItem('lang') || 'ar';
@@ -1002,21 +1049,22 @@ function renderProducts(searchTerm = '') {
             const badge = currentLang === 'ar' ? p.badge_ar : p.badge_en;
             const currency = currentLang === 'ar' ? p.currency_ar : p.currency_en;
 
-            const isOutOfStock = (p.stock_quantity ?? 0) <= 0;
+            const stockLevel = getStockLevel(p.id);
+            const isOutOfStock = stockLevel <= 0;
             const stockClass = isOutOfStock ? 'stock-out' : 'stock-in';
             const stockText = currentLang === 'ar'
                 ? isOutOfStock
                     ? 'نفد المخزون'
-                    : `متبقي: ${p.stock_quantity} قطع`
+                    : `متبقي: ${stockLevel} قطع`
                 : isOutOfStock
                     ? 'Out of stock'
-                    : `Stock: ${p.stock_quantity}`;
+                    : `Stock: ${stockLevel}`;
 
             const buyBtnDisabledAttr = isOutOfStock ? 'disabled style="opacity: 0.5; cursor: not-allowed;"' : '';
             const buyBtnText = isOutOfStock
                 ? currentLang === 'ar'
                     ? 'غير متوفر'
-                    : 'Out of stock'
+                    : 'Out of Stock'
                 : translations[currentLang].addCartBtn;
 
             const isFavorite = favorites.includes(p.id);
@@ -1112,6 +1160,7 @@ function adjustQty(id, delta) {
     if (!el) return;
     let val = parseInt(el.innerText) + delta;
     if (val < 1) val = 1;
+    if (val > 3) val = 3;
     el.innerText = val;
 }
 
@@ -1121,7 +1170,11 @@ function adjustQty(id, delta) {
 function addToCart(id) {
     const product = getProducts().find(p => p.id === id);
     if (!product) return;
-    const qty = parseInt(document.getElementById(`qty-${id}`).innerText) || 1;
+
+    const qty = parseInt(document.getElementById(`qty-${id}`)?.innerText) || 1;
+    if (!canAddToCart(id, qty)) {
+        return;
+    }
 
     const existing = cart.find(item => item.id === id);
     if (existing) {
@@ -1132,6 +1185,7 @@ function addToCart(id) {
 
     saveCart();
     renderCart();
+    renderProducts(document.getElementById('search-input')?.value || '');
     openDrawer('cart-drawer');
 
     // Badge pulse animation
@@ -1169,6 +1223,11 @@ function renderCart() {
                 <div class="cart-item-info">
                     <h4>${title}</h4>
                     <p>${item.qty} × ${item.price} ${currency}</p>
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:8px;">
+                        <button class="qty-btn" onclick="changeCartItemQty(${item.id}, -1)" style="width:28px; height:28px; border-radius:50%; border:none; cursor:pointer;">−</button>
+                        <span style="min-width:20px; text-align:center; font-weight:bold;">${item.qty}</span>
+                        <button class="qty-btn" onclick="changeCartItemQty(${item.id}, 1)" style="width:28px; height:28px; border-radius:50%; border:none; cursor:pointer;" ${item.qty >= 3 || getStockLevel(item.id) <= item.qty ? 'disabled' : ''}>+</button>
+                    </div>
                     <span class="remove-btn" onclick="removeFromCart(${item.id})">
                         ${currentLang === 'ar' ? 'إزالة' : 'Remove'}
                     </span>
@@ -1186,6 +1245,25 @@ function updateCheckoutButton() {
     const btn = document.getElementById('checkout-btn');
     if (!btn) return;
     btn.disabled = cart.length === 0;
+}
+
+function changeCartItemQty(id, delta) {
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+
+    const newQty = item.qty + delta;
+    if (newQty <= 0) {
+        removeFromCart(id);
+        return;
+    }
+
+    if (newQty > 3 || newQty > getStockLevel(id)) {
+        return;
+    }
+
+    item.qty = newQty;
+    saveCart();
+    renderCart();
 }
 
 function removeFromCart(id) {
