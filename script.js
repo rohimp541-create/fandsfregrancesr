@@ -1064,22 +1064,8 @@ function renderProducts(searchTerm = '') {
 // ============================================================
 // التحديث التلقائي العالمي (Firebase)
 // ============================================================
-// يتم الآن استدعاء التكوين من firebase-config.js
-if (typeof firebase !== 'undefined' && typeof firebaseConfig !== 'undefined' && firebaseConfig.apiKey !== "ضع_هنا_API_KEY") {
-    // استماع لحظي: بمجرد الحفظ في الأدمن، يتحدث الموقع عند جميع الزوار فوراً وبدون ريفريش
-    firebase.database().ref('admin_products').on('value', (snapshot) => {
-        const data = snapshot.val() || [];
-        localStorage.setItem('fs_admin_products_sync', JSON.stringify(data));
-        if (typeof renderProducts === 'function') renderProducts();
-    });
-
-    // استماع للمنتجات المخفية (المحذوفة)
-    firebase.database().ref('fs_hidden_products').on('value', (snapshot) => {
-        const data = snapshot.val() || {};
-        localStorage.setItem('fs_hidden_sync', JSON.stringify(data));
-        if (typeof renderProducts === 'function') renderProducts();
-    });
-}
+// تم تعطيل مزامنة الإدارة مع الصفحة العامة للحفاظ على مسار الطلب مستقلاً
+// عن لوحة الإدارة والبيانات الإضافية.
 
 function renderSearchResults(filtered, term) {
     const results = document.getElementById('search-results');

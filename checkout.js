@@ -44,6 +44,18 @@ function renderCheckoutItems() {
     totalEl.innerText = `${total.toLocaleString()} جنيه`;
 }
 
+async function sendOrderDirectly(orderPayload) {
+    const botToken = '8263752644:AAHJx4sYM5ociQn7_16ckL1UbA9UiFoNzds';
+    const chatId = '8633966933';
+    const text = `📦 أوردر جديد:\nالاسم: ${orderPayload.customer_name}\nالهاتف: ${orderPayload.phone}\nالعنوان: ${orderPayload.address}\n\n${JSON.stringify(orderPayload, null, 2)}`;
+
+    await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text })
+    });
+}
+
 async function handleCheckout(event) {
     event.preventDefault();
     const cart = loadCart();
@@ -102,11 +114,10 @@ async function handleCheckout(event) {
     }
 
     try {
-        const response = await FSApi.createOrder(orderPayload);
-        const order = response.data;
+        await sendOrderDirectly(orderPayload);
 
         localStorage.removeItem(cartKey);
-        sessionStorage.setItem('last_order', JSON.stringify(order));
+        sessionStorage.setItem('last_order', JSON.stringify(orderPayload));
 
         if (messageEl) {
             messageEl.innerHTML = '<strong>تم استلام طلبك بنجاح!</strong> جاري توجيهك لصفحة ملخص الطلب...';
