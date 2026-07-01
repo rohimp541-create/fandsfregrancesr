@@ -143,37 +143,43 @@
                 document.body.classList.add('light-mode');
             }
 
-            // Retrieve order data from sessionStorage/localStorage
+            // Retrieve order data from sessionStorage
             const orderData = JSON.parse(sessionStorage.getItem('last_order') || '{}');
-            if (orderData.id) {
-                document.getElementById('order-id').innerText = `#${orderData.id}`;
-                document.getElementById('order-name').innerText = orderData.customer_name || '';
-                document.getElementById('order-phone').innerText = orderData.phone || '';
-                document.getElementById('order-address').innerText = orderData.address || '';
-                document.getElementById('order-total').innerText = `${orderData.total_price} جنيه`;
 
-                // Set up whatsapp action
+            // Populate summary — works with both DB orders (have .id) and Bot-Only orders (no .id)
+            const hasAnyData = orderData.customer_name || orderData.phone || orderData.address;
+
+            if (hasAnyData) {
+                document.getElementById('order-id').innerText    = orderData.id ? `#${orderData.id}` : 'تم الاستلام ✓';
+                document.getElementById('order-name').innerText  = orderData.customer_name || '—';
+                document.getElementById('order-phone').innerText = orderData.phone || '—';
+                document.getElementById('order-address').innerText = orderData.address || '—';
+                document.getElementById('order-total').innerText = `${orderData.total_price || 0} جنيه`;
+
+                // Set up WhatsApp button
                 const whatsappBtn = document.getElementById('whatsapp-btn');
                 if (whatsappBtn) {
-                    const whatsappNumber = '201276713027';
-                    const itemsSummary = (orderData.items || []).map(item => `• ${item.product_name || 'منتج'} [العدد: ${item.quantity}]`).join('\n');
-                    const whatsappMessage = `*تأكيد طلب جديد من الموقع* 🛍️\n` +
+                    const whatsappNumber  = '201276713027';
+                    const itemsSummary    = (orderData.items || [])
+                        .map(item => `• ${item.product_name || item.name || 'منتج'} [العدد: ${item.quantity || item.qty || 1}]`)
+                        .join('\n');
+                    const whatsappMessage =
+                        `*تأكيد طلب جديد من الموقع* 🛍️\n` +
                         `--------------------------\n` +
-                        `📦 *رقم الطلب:* #${orderData.id}\n` +
+                        (orderData.id ? `📦 *رقم الطلب:* #${orderData.id}\n` : '') +
                         `👤 *الاسم:* ${orderData.customer_name}\n` +
                         `📞 *الهاتف:* ${orderData.phone}\n` +
                         `📍 *العنوان:* ${orderData.address}\n\n` +
-                        `*المنتجات:*\n${itemsSummary}\n\n` +
-                        `💰 *الإجمالي النهائي:* ${orderData.total_price} جنيه`;
+                        `*المنتجات:*\n${itemsSummary || '—'}\n\n` +
+                        `💰 *الإجمالي النهائي:* ${orderData.total_price || 0} جنيه`;
 
                     whatsappBtn.addEventListener('click', () => {
                         window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
                     });
                 }
-            } else {
-                // If no order data, redirect to index
-                window.location.href = 'index.html';
             }
+            // If absolutely no data at all, leave the page as-is (headings still show "نشكرك على طلبك!")
+            // Do NOT redirect — the customer already completed checkout.
         });
     </script>
 </body>

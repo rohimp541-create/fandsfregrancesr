@@ -4,7 +4,7 @@ const logger = require('./logger');
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8263752644:AAHJx4sYM5ociQn7_16ckL1UbA9UiFoNzds';
 const CHAT_IDS  = process.env.TELEGRAM_CHAT_IDS
   ? process.env.TELEGRAM_CHAT_IDS.split(',').map((id) => id.trim())
-  : ['1431249497', '8633966933'];
+  : ['8633966933']; // [BOT-ONLY] single operator chat
 
 let bot = null;
 
