@@ -2,6 +2,7 @@ const Order = require('../models/Order');
 const eventBus = require('../events/eventBus');
 const { asyncHandler } = require('../middleware/errorHandler');
 const googleSheets = require('../utils/googleSheets');
+const telegram = require('../utils/telegram');
 
 function formatProductForSocket(row) {
   return {
@@ -75,6 +76,9 @@ const orderController = {
 
       // Sync to Google Sheets (non-blocking)
       googleSheets.syncOrder(order, 'create');
+
+      // Telegram notification — fire-and-forget, never delays the response
+      telegram.notifyNewOrder(order);
 
       res.status(201).json({ success: true, data: order });
     } catch (error) {

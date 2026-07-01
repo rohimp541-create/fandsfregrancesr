@@ -47,3 +47,21 @@ store.db-wal
 .env*
 out.txt
 github/
+
+# Vercel deploy logs
+vercel_*.log
+
+# SQLite WAL/SHM files at root level
+*.db-shm
+*.db-wal
+
+# WhatsApp image uploads (not project assets)
+WhatsApp\ Image*.jpeg
+WhatsApp\ Image*.jpg
+
+# One-off diagnostic scripts
+backend/_diag.js
+backend/probe.js
+backend/probe.log
+backend/verify.js
+backend/out.txt
