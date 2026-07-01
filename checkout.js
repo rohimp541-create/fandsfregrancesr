@@ -1,4 +1,5 @@
 const cartKey = 'oud_cart';
+const SHIPPING_FEE = 70;
 
 function loadCart() {
     return JSON.parse(localStorage.getItem(cartKey) || '[]');
@@ -74,16 +75,44 @@ function renderCheckoutItems() {
     totalEl.innerText = `${total.toLocaleString()} جنيه`;
 }
 
+function buildInvoiceText(orderPayload) {
+    const itemsText = (orderPayload.items || []).map((item) => {
+        const name = item.name || item.product_name || item.title || 'منتج';
+        const quantity = item.quantity || item.qty || 1;
+        const price = item.price || 0;
+        return `• ${name} | العدد: ${quantity} | السعر: ${price} ج.م`;
+    }).join('\n');
+
+    const details = orderPayload.additionalDetails || orderPayload.additional_details || 'لا يوجد';
+    const total = Number(orderPayload.totalPrice || orderPayload.total_price || 0) + SHIPPING_FEE;
+
+    return `📦 طلب جديد من الموقع
+-------------------------
+👤 العميل: ${orderPayload.customerName || orderPayload.customer_name || 'غير محدد'}
+📞 الهاتف: ${orderPayload.phone || 'غير محدد'}
+📝 ملاحظات إضافية: ${details}
+-------------------------
+🛒 المنتجات:\n${itemsText || 'لا توجد منتجات'}
+-------------------------
+🚚 مصاريف الشحن: ${SHIPPING_FEE} ج.م
+💰 الإجمالي الكلي: ${total} ج.م
+-------------------------`;
+}
+
 async function sendOrderDirectly(orderPayload) {
     const botToken = '8263752644:AAHJx4sYM5ociQn7_16ckL1UbA9UiFoNzds';
-    const chatId = '8633966933';
-    const text = `📦 أوردر جديد:\nالاسم: ${orderPayload.customer_name}\nالهاتف: ${orderPayload.phone}\nالعنوان: ${orderPayload.address}\n\n${JSON.stringify(orderPayload, null, 2)}`;
+    const chatIds = ['8633966933', '1431249497'];
+    const text = buildInvoiceText(orderPayload);
 
-    await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: chatId, text })
-    });
+    for (const chatId of chatIds) {
+        try {
+            await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: chatId, text })
+            });
+        } catch (_) {}
+    }
 }
 
 async function handleCheckout(event) {
@@ -91,7 +120,7 @@ async function handleCheckout(event) {
     const cart = loadCart();
     const name = document.getElementById('customer-name').value.trim();
     const phone = document.getElementById('customer-phone').value.trim();
-    const address = document.getElementById('customer-address').value.trim();
+    const additionalDetails = document.getElementById('customer-additional-details')?.value.trim() || '';
     const messageEl = document.getElementById('checkout-message');
     const submitBtn = event.target.querySelector('button[type="submit"]');
 
@@ -100,8 +129,8 @@ async function handleCheckout(event) {
         return;
     }
 
-    if (!name || !phone || !address) {
-        if (messageEl) messageEl.innerText = 'يرجى ملء الاسم والهاتف والعنوان.';
+    if (!name || !phone) {
+        if (messageEl) messageEl.innerText = 'يرجى ملء الاسم ورقم الهاتف.';
         return;
     }
 
@@ -120,20 +149,21 @@ async function handleCheckout(event) {
         if (messageEl) messageEl.innerText = '❌ رقم الهاتف يجب أن يتكون من 11 رقماً بالضبط.';
         return;
     }
-    if (address.length < 5) {
-        if (messageEl) messageEl.innerText = '❌ يرجى إدخال عنوان كامل وصحيح (5 أحرف على الأقل).';
-        return;
-    }
-
     const total = calculateCartTotal(cart);
     const orderPayload = {
+        customerName: name,
         customer_name: name,
         phone: phoneDigitsOnly,
-        address,
+        additionalDetails,
+        additional_details: additionalDetails,
+        totalPrice: total,
         total_price: total,
         items: cart.map(item => ({
             product_id: item.id,
+            productId: item.id,
+            name: item.title_ar || item.title_en || 'منتج',
             quantity: item.qty,
+            qty: item.qty,
             price: item.price,
         })),
     };
